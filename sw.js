@@ -1,5 +1,5 @@
 ﻿// ATLETIQ service worker: cache-first para que funcione sin conexiÃ³n.
-const CACHE = 'atletiq-v12';
+const CACHE = 'atletiq-v13';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './icon-maskable.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
