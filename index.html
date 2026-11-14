@@ -191,7 +191,7 @@ details.inner summary{color:var(--cyan);font-size:13px;font-weight:600;padding:8
 .toast.vis{opacity:1;transform:translate(-50%,0)}
 .focus{position:fixed;inset:0;background:var(--bg);z-index:45;display:none;flex-direction:column;overflow:auto}.focus.open{display:flex}
 .fbar{display:flex;gap:12px;align-items:center;padding:14px 16px;position:sticky;top:0;background:var(--bg);z-index:2}.fbar .progress{flex:1;margin:0}
-.fbody{max-width:520px;width:100%;margin:0 auto;padding:4px 16px 110px;text-align:center;animation:fade .3s}
+.fbody{max-width:520px;width:100%;margin:0 auto;padding:4px 16px 24px;text-align:center;animation:fade .3s}
 .fbody h2{font-size:26px;margin:4px 0;letter-spacing:-.6px}
 .ffig{width:min(240px,62vw);border:1px solid var(--line);border-radius:16px;background:var(--field);padding:8px;margin:12px auto;display:block;cursor:pointer}
 .fset{font-size:15px;color:var(--muted);margin:16px 0 8px}.fset b{color:var(--text);font-size:24px}
@@ -224,7 +224,7 @@ details.inner summary{color:var(--cyan);font-size:13px;font-weight:600;padding:8
 .wlist{display:grid;gap:8px;margin-top:14px;text-align:left}
 .wrow{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.wrow b{font-size:18px}
 .i{width:1.15em;height:1.15em;vertical-align:-.22em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;display:inline-block}
-.fold .ico{color:var(--acc-t)}
+.fold .ico{display:none}.fold .ico~div{margin-left:2px}
 .party .i{width:64px;height:64px;color:var(--acc-t);stroke-width:1.6}
 .bdg .e{color:var(--acc-t)}
 .obt .e{color:var(--acc-t);display:grid;place-items:center}
@@ -242,6 +242,29 @@ button,.nav,.day,.vcard,.obt,summary{-webkit-user-select:none;user-select:none}
 .install{display:none}.install.vis{display:inline-flex}
 table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding:6px}td{border-top:1px solid var(--line);padding:8px 6px}
 .tablewrap{overflow-x:auto}
+/* Fotos de ejercicio (inicio/fin alternando) */
+.exph{position:relative;display:block;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#fff}
+.exph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.exph img.b{animation:swap 2.6s steps(1,end) infinite}
+@keyframes swap{0%{opacity:0}50%{opacity:1}}
+.exph.vec{background:var(--field);padding:4px;aspect-ratio:auto}
+.exph.sm{width:100%;height:100%;aspect-ratio:auto;border-radius:8px}.exph.sm img{object-fit:cover}.exph.sm img.b{animation:none;display:none}
+.thumb{padding:0;overflow:hidden;background:#fff}.thumb:after{display:none}
+.ffig{background:#fff;padding:0;overflow:hidden;width:min(320px,80vw)}.ffig .exph{border-radius:0}
+.techfig .exph{border-radius:10px}#tcFig{padding:0;overflow:hidden;background:#fff;display:grid;align-items:center}#tcFig .exph{width:100%}
+:root[data-theme="dark"] .exph:not(.vec),:root[data-theme="dark"] .thumb,:root[data-theme="dark"] .ffig,:root[data-theme="dark"] #tcFig{filter:brightness(.92)}
+/* Vídeos */
+.ytbtn{display:flex;gap:12px;align-items:center;margin-top:10px;padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--field);color:var(--text);text-decoration:none}
+.ytbtn:hover{border-color:#ff0033}.ytbtn .yt{width:42px;height:30px;border-radius:9px;background:#ff0033;color:#fff;display:grid;place-items:center;font-size:13px;flex:none}
+.ytbtn b{display:block;font-size:14px}.ytbtn small{color:var(--muted);font-size:12px}
+.addvid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:8px;margin-top:8px}
+@media(max-width:600px){.addvid{grid-template-columns:1fr}}
+.mvdel{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;cursor:pointer;font-size:15px;line-height:1}
+/* Música */
+.music iframe{width:100%;border:0;border-radius:12px;display:block}
+.spotcta{width:100%;border:1px dashed var(--line2);background:transparent;color:var(--muted);border-radius:12px;padding:11px;cursor:pointer;font-weight:600}
+.spotcta:hover{border-color:#1db954;color:var(--text)}
+.fmusic{position:sticky;bottom:0;max-width:520px;width:100%;margin:auto auto 0;padding:8px 16px calc(10px + env(safe-area-inset-bottom));background:var(--bg)}
 .hsess{border:1px solid var(--line);border-radius:12px;margin-top:10px;background:var(--panel)}
 .hsess>summary{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px}.hsess>summary b{display:block;font-size:14px}
 .hbody{padding:0 14px 14px}.hrow{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--line);font-size:13.5px}.hrow .sub{text-align:right}
@@ -312,18 +335,21 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
   <section class="card" style="margin-top:14px">
     <div class="headline"><div><div class="tag" id="detailSub"></div><h2 id="detailTitle"></h2><span class="sub" id="detailDesc"></span></div><div style="display:flex;gap:6px;flex:none"><span class="pill" id="detailCount"></span><button class="btn ghost icon" id="editDay" title="Renombrar día" aria-label="Renombrar día"><svg class="i"><use href="#i-edit"/></svg></button></div></div>
     <button class="btn primary big" id="startFocus" style="margin-top:14px"><svg class="i"><use href="#i-play"/></svg> Empezar modo entreno</button>
+    <div class="music" style="margin-top:12px"></div>
     <details class="tipfold"><summary><svg class="i"><use href="#i-bulb"/></svg> Consejo para este día</summary><div class="note" id="detailTip" style="margin-top:8px"></div></details>
     <div id="exList"></div>
     <button class="btn ghost" id="addEx" style="margin-top:14px;width:100%">+ Añadir ejercicio</button>
   </section>
   <details class="card fold">
-    <summary><span class="ico"><svg class="i"><use href="#i-play"/></svg></span><div><div class="tag">Aprende</div><b>Vídeos para este día y clips guardados</b></div></summary>
+    <summary><div><div class="tag">Aprende</div><b>Mis vídeos y recomendados</b></div></summary>
     <div class="foldbody">
-    <p class="sub">Toca para verlo aquí mismo. Necesita conexión.</p>
-    <div class="vgrid" id="dayVids"></div>
-    <div class="tag" style="margin-top:20px">Clips cortos que guardaste</div>
+    <div class="tag">Mis vídeos guardados</div>
+    <div class="addvid"><select id="mvEx" aria-label="Ejercicio"></select><input id="mvUrl" placeholder="Enlace de YouTube o TikTok"><button class="btn primary" id="mvSave">Guardar</button></div>
+    <p class="sub">Elige el ejercicio y pega el enlace. Lo verás aquí y en «Cómo se hace».</p>
     <div class="vgrid tt" id="clips"></div>
     <div class="player tt" id="clipPlayer" style="display:none"></div>
+    <div class="tag" style="margin-top:22px">Recomendados para este día</div>
+    <div class="vgrid" id="dayVids"></div>
     </div>
   </details>
 </div>
@@ -398,6 +424,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
         <label class="f">Subida carga ≥ 40 kg<input type="number" id="oIncB" min="0.5" max="10" step="0.5"></label>
         <label class="f">Subida carga &lt; 40 kg<input type="number" id="oIncS" min="0.25" max="5" step="0.25"></label>
         <label class="f">Semanas por bloque<input type="number" id="oWeeks" min="3" max="8"></label>
+        <label class="f" style="grid-column:1/-1">Música: enlace de Spotify (playlist, álbum o canción)<input id="oSpot" placeholder="https://open.spotify.com/playlist/…"></label>
         <label class="f">Sonido al terminar descanso<select id="oSound"><option value="1">Sí</option><option value="0">No</option></select></label>
       </div>
     </section>
@@ -414,7 +441,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 </main>
 </div>
 
-<div class="focus" id="focus" role="dialog" aria-label="Modo entreno"><div class="fbar"><button class="btn ghost icon" id="fClose" aria-label="Salir">✕</button><div class="progress"><i id="fBar"></i></div><span class="sub" id="fCount"></span></div><div id="fBody"></div></div>
+<div class="focus" id="focus" role="dialog" aria-label="Modo entreno"><div class="fbar"><button class="btn ghost icon" id="fClose" aria-label="Salir">✕</button><div class="progress"><i id="fBar"></i></div><span class="sub" id="fCount"></span></div><div id="fBody"></div><div class="music fmusic"></div></div>
 <div class="toast" id="toast" role="status"></div>
 <div class="timer" id="timer"><span class="tag">Descanso</span><b id="tDisplay">0:00</b><button class="btn icon" data-t="-15">−15</button><button class="btn icon" data-t="15">+15</button><button class="btn ghost icon" id="tStop" aria-label="Cerrar">✕</button></div>
 
@@ -451,7 +478,8 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
   <div class="tag" id="tcTag">Técnica</div><h2 id="tcTitle"></h2>
   <div class="techgrid"><div class="techfig" id="tcFig"></div><div class="techfig" id="tcMap"></div></div><div class="legend"><span><i style="background:var(--hot)"></i>Músculo principal</span><span><i style="background:color-mix(in srgb,var(--hot) 45%,var(--mu))"></i>Secundario</span></div>
   <ul class="cues" id="tcCues"></ul>
-  <div class="tag" style="margin-top:18px">Vídeo</div><div id="tcVid"></div><label class="f" style="margin-top:12px">Vídeo asignado a este ejercicio<select id="tcPick"></select></label><div class="form"><input id="tcUrl" placeholder="…o pega un enlace de YouTube o TikTok"><button class="btn" id="tcUrlSave">Asignar</button></div><div class="vlinks"><a id="tcYT" target="_blank" rel="noopener">Buscar este ejercicio en YouTube ↗</a><a id="tcTT" target="_blank" rel="noopener">Buscar en TikTok ↗</a></div>
+  <div class="tag" style="margin-top:20px">Vídeo de la técnica</div><div id="tcVid"></div>
+  <details class="inner"><summary>Guardar un vídeo para este ejercicio</summary><div class="form" style="margin-top:0"><input id="tcUrl" placeholder="Pega un enlace de YouTube o TikTok"><button class="btn" id="tcUrlSave">Guardar</button></div><a class="sub" id="tcTT" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px">Buscar en TikTok ↗</a></details>
   <div class="tag" style="margin-top:18px">Mi referencia</div>
   <div class="mymedia" id="tcMine"></div>
   <div class="form"><label class="btn ghost">Guardar foto o vídeo propio<input type="file" id="tcFile" accept="image/*,video/*" hidden></label><button class="btn danger" id="tcDel" style="display:none">Quitar</button></div>
@@ -486,7 +514,7 @@ const LIB={
 const TARGETS={'Pecho':[12,16],'Espalda':[12,16],'Hombro':[10,14],'Bíceps':[10,14],'Tríceps':[8,12],'Cuádriceps':[10,16],'Glúteo/femoral':[10,16],'Gemelo':[6,10],'Antebrazo':[2,6],'Abdomen':[2,8]};
 const ACCENTS=[['#b8f34e','#142600'],['#36d9e8','#00262b'],['#ffb86a','#331a00'],['#f472b6','#3a0420'],['#a78bfa','#1d0b44'],['#facc15','#2e2400']];
 const DAYS=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
-const CFG_DEF={theme:'dark',acc:0,name:'',restH:150,restL:90,incB:2.5,incS:1,weeks:4,sound:1};
+const CFG_DEF={spot:'',theme:'dark',acc:0,name:'',restH:150,restL:90,incB:2.5,incS:1,weeks:4,sound:1};
 
 // ===== Utilidades =====
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -589,6 +617,10 @@ function applyTheme(){
   $('meta[name=theme-color]').content=dark?'#07111d':'#f3f6fa';
 }
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.cfg.theme==='auto'){applyTheme();renderHome()}});
+function spotEmbed(u){u=String(u||'');const m=u.match(/open\.spotify\.com\/(?:intl-[\w-]+\/)?(playlist|album|track|artist|episode|show)\/([A-Za-z0-9]+)/)||u.match(/^spotify:(playlist|album|track|artist|episode|show):([A-Za-z0-9]+)/);return m?`https://open.spotify.com/embed/${m[1]}/${m[2]}?theme=0`:''}
+function renderMusic(){const src=spotEmbed(S.cfg.spot);$$('.music').forEach(el=>{
+  if(src){if(el.dataset.src!==src){el.dataset.src=src;el.innerHTML=`<iframe src="${src}" height="80" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Spotify"></iframe>`}}
+  else{el.dataset.src='';el.innerHTML=`<button class="spotcta" data-gospot>♫ Añade tu playlist de Spotify</button>`}})}
 function renderOptions(){
   const c=S.cfg;
   $$('[data-theme-set]').forEach(b=>b.classList.toggle('on',b.dataset.themeSet===c.theme));
@@ -596,6 +628,7 @@ function renderOptions(){
   const map={oName:'name',oRestH:'restH',oRestL:'restL',oIncB:'incB',oIncS:'incS',oWeeks:'weeks',oSound:'sound'};
   for(const id in map){const el=$('#'+id);el.value=c[map[id]];el.onchange=()=>{const v=el.type==='number'?+el.value:el.value;if(el.type==='number'&&!(v>0))return renderOptions();c[map[id]]=id==='oSound'?+v:v;save();renderAll()}}
   $('#planState').textContent=S.custom?'Plan personalizado':'Plan original';
+  const sp=$('#oSpot');sp.value=c.spot||'';sp.onchange=()=>{const u=sp.value.trim();if(u&&!spotEmbed(u)){alert('Pega un enlace de Spotify (playlist, álbum o canción). En la app: Compartir → Copiar enlace.');sp.value=c.spot||'';return}c.spot=u;save();renderMusic();toast(u?'♫ Spotify conectado':'Música quitada')};
 }
 
 // ===== Vista Hoy =====
@@ -669,7 +702,7 @@ function renderRoutine(){
     let rows='';for(let s=0;s<x.s;s++){const cur=(e&&e.sets[s])||{},pv=prev&&prev.sets[s]||{};
       rows+=`<span class="sub">${s+1}</span><input type="number" step="0.25" inputmode="decimal" placeholder="${esc(pv.kg||'kg')}" value="${esc(cur.kg)}" data-id="${x.id}" data-s="${s}" data-f="kg" aria-label="Kg serie ${s+1}"><input type="number" inputmode="numeric" placeholder="${esc(pv.reps||x.lo+'–'+x.hi)}" value="${esc(cur.reps)}" data-id="${x.id}" data-s="${s}" data-f="reps" aria-label="Reps serie ${s+1}"><button class="btn ghost icon" data-rest="${rest}" title="Descanso ${rest}s"><svg class="i"><use href="#i-timer"/></svg></button>`}
     const dots=Array.from({length:x.s},(_,i)=>`<i class="${i<nv?'on':''}"></i>`).join('');
-    return `<div class="ex ${e&&e.done?'isdone':''} ${x.id===openEx?'open':''}" data-ex="${x.id}"><header data-toggle="${x.id}"><div class="exhead"><button class="thumb" data-tech="${x.id}" title="Ver técnica" aria-label="Ver técnica de ${esc(x.n)}">${fig(pat(x.n),x.g)}</button><div><b>${esc(x.n)}</b><div class="sub">${x.s} × ${x.lo}–${x.hi} · RIR ${esc(x.rir)}${ad.go?' · <span class="up">▲ sube</span>':''}</div><div class="dots">${dots}</div></div></div><div class="actions"><button class="btn ${e&&e.done?'done':''}" data-done="${x.id}">${e&&e.done?'✓':'Hecho'}</button><span class="chev">⌄</span></div></header>
+    return `<div class="ex ${e&&e.done?'isdone':''} ${x.id===openEx?'open':''}" data-ex="${x.id}"><header data-toggle="${x.id}"><div class="exhead"><button class="thumb" data-tech="${x.id}" title="Ver técnica" aria-label="Ver técnica de ${esc(x.n)}">${exPic(x.n,x.g,'exph sm')}</button><div><b>${esc(x.n)}</b><div class="sub">${x.s} × ${x.lo}–${x.hi} · RIR ${esc(x.rir)}${ad.go?' · <span class="up">▲ sube</span>':''}</div><div class="dots">${dots}</div></div></div><div class="actions"><button class="btn ${e&&e.done?'done':''}" data-done="${x.id}">${e&&e.done?'✓':'Hecho'}</button><span class="chev">⌄</span></div></header>
     <div class="exbody"><div class="hint ${ad.go?'go':''}">${ad.go?'▲ ':''}${ad.txt}</div>
     <div class="sets"><span class="h">#</span><span class="h">Kg</span><span class="h">Reps</span><span></span>${rows}</div>
     <div class="exfoot"><button class="btn ghost icon" data-tech="${x.id}">Cómo se hace</button><button class="btn ghost icon" data-edit="${x.id}"><svg class="i"><use href="#i-edit"/></svg> Cambiar</button><span class="chip">${esc(x.g)}</span></div></div></div>`}).join(''):'<p class="sub" style="margin-top:14px">Este día no tiene ejercicios. Añade uno abajo.</p>';
@@ -884,6 +917,13 @@ function fig(k,g){
   (p.w||[]).forEach(j=>s+=dot(j,8,'eq')+dot(j,3,'eqc'));
   return `<svg class="fig" viewBox="0 -18 200 182" aria-hidden="true">${s}</svg>`;
 }
+const PHOTO=[['curl femoral sentado','Seated_Leg_Curl'],['curl femoral','Lying_Leg_Curls'],['curl inclinado','Incline_Dumbbell_Curl'],['curl predicador','Preacher_Curl'],['curl martillo','Hammer_Curls'],['curl bayesian','Standing_One-Arm_Cable_Curl'],['curl barra ez','EZ-Bar_Curl'],['curl concentrado','Concentration_Curls'],['curl inverso','Reverse_Barbell_Curl'],['curl de muñeca','Palms-Up_Dumbbell_Wrist_Curl_Over_A_Bench'],['extensión de muñeca','Palms-Down_Dumbbell_Wrist_Curl_Over_A_Bench'],['press inclinado mancuernas','Incline_Dumbbell_Press'],['press inclinado en smith','Smith_Machine_Incline_Bench_Press'],['press inclinado','Barbell_Incline_Bench_Press_-_Medium_Grip'],['press en máquina convergente','Leverage_Chest_Press'],['press plano en máquina','Machine_Bench_Press'],['press plano mancuernas','Dumbbell_Bench_Press'],['press banca','Barbell_Bench_Press_-_Medium_Grip'],['press cerrado','Close-Grip_Barbell_Bench_Press'],['press francés','EZ-Bar_Skullcrusher'],['press militar','Dumbbell_Shoulder_Press'],['press hombro','Leverage_Shoulder_Press'],['fondos en banco','Bench_Dips'],['fondos','Dips_-_Chest_Version'],['apertura en cable','Cable_Crossover'],['cruce de cables','Low_Cable_Crossover'],['pec deck inverso','Reverse_Machine_Flyes'],['pec deck','Butterfly'],['flexiones','Pushups'],['dominada lastrada','Pullups'],['dominada','Chin-Up'],['jalón unilateral','One_Arm_Lat_Pulldown'],['jalón al pecho neutro','Close-Grip_Front_Lat_Pulldown'],['jalón','Wide-Grip_Lat_Pulldown'],['remo pecho apoyado','Lying_T-Bar_Row'],['remo en cable','Seated_Cable_Rows'],['remo con mancuerna','One-Arm_Dumbbell_Row'],['remo en t','T-Bar_Row_with_Handle'],['remo en máquina','Leverage_High_Row'],['pullover','Straight-Arm_Pulldown'],['encogimiento','Dumbbell_Shrug'],['elevación lateral en cable','Cable_Seated_Lateral_Raise'],['elevación lateral','Side_Lateral_Raise'],['face pull','Face_Pull'],['pájaros','Reverse_Flyes'],['extensión sobre cabeza','Cable_Rope_Overhead_Triceps_Extension'],['extensión unilateral','Dumbbell_One-Arm_Triceps_Extension'],['pushdown cuerda','Triceps_Pushdown_-_Rope_Attachment'],['pushdown','Triceps_Pushdown'],['hack','Hack_Squat'],['sentadilla goblet','Goblet_Squat'],['sentadilla búlgara','Split_Squat_with_Dumbbells'],['sentadilla péndulo','Hack_Squat'],['sentadilla','Barbell_Squat'],['prensa','Leg_Press'],['zancada','Barbell_Walking_Lunge'],['extensión de rodilla','Leg_Extensions'],['hip thrust','Barbell_Hip_Thrust'],['peso muerto rumano','Romanian_Deadlift'],['peso muerto','Barbell_Deadlift'],['abducción','Thigh_Abductor'],['hiperextensión','Hyperextensions_Back_Extensions'],['good morning','Good_Morning'],['patada de glúteo','One-Legged_Cable_Kickback'],['gemelo sentado','Seated_Calf_Raise'],['gemelo en prensa','Calf_Press_On_The_Leg_Press_Machine'],['gemelo','Standing_Calf_Raises'],['paseo del granjero','Farmers_Walk'],['crunch','Cable_Crunch'],['elevación de piernas','Hanging_Leg_Raise'],['rueda','Ab_Roller'],['plancha','Plank']];
+const IMGBASE='https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/';
+const photoId=n=>{n=(n||'').toLowerCase();const m=PHOTO.find(([k])=>n.includes(k));return m&&m[1]};
+// Foto: posición inicial y final alternándose. Sin foto o sin red → figura vectorial.
+function exPic(n,g,cls){const id=photoId(n),fb=fig(pat(n),g);cls=cls||'exph';
+  if(!id)return `<span class="${cls} vec">${fb}</span>`;
+  return `<span class="${cls}" data-fb="${esc(fb)}"><img src="${IMGBASE}${id}/0.jpg" alt="" loading="lazy" onerror="const p=this.parentNode;p.classList.add('vec');p.innerHTML=p.dataset.fb"><img class="b" src="${IMGBASE}${id}/1.jpg" alt="" loading="lazy" onerror="this.remove()"></span>`}
 // ===== Mapa muscular =====
 const SHP={
  delt:'M72 44Q86 41 92 54Q92 64 86 70Q82 58 72 50Z',pec:'M61 48L72 47Q84 53 85 66Q78 78 61 77Z',bic:'M85 71Q93 70 94 84Q93 96 89 102Q83 92 85 71Z',
@@ -938,33 +978,39 @@ function renderDayVids(p){
   const gs=new Set(p.ex.map(e=>e.g));
   const list=VIDS.map(v=>({v,sc:v.g.filter(g=>gs.has(g)).length/Math.sqrt(v.g.length)})).filter(o=>o.sc>0).sort((a,b)=>b.sc-a.sc).slice(0,4).map(o=>o.v);
   $('#dayVids').innerHTML=list.map(ytCard).join('')||'<p class="sub">Sin vídeos para estos grupos.</p>';
-  $('#clips').innerHTML=CLIPS.map(([a,id],i)=>`<button class="vcard" data-tt="${id}"><div class="th"><span class="pl"><svg class="i"><use href="#i-music"/></svg></span></div><div class="cap"><b>Clip ${i+1}</b><small>@${esc(a)}</small></div></button>`).join('');
+  renderMyVids();
 }
 $('#dayVids').addEventListener('click',e=>{const c=e.target.closest('[data-yt]');if(c)c.outerHTML=`<div>${player({k:'yt',id:c.dataset.yt})}</div>`});
-$('#clips').addEventListener('click',e=>{const c=e.target.closest('[data-tt]');if(!c)return;$('#clipPlayer').outerHTML=`<div id="clipPlayer">${player({k:'tt',id:c.dataset.tt})}<div class="vlinks" style="justify-content:center"><button class="btn ghost icon" id="clipClose">Cerrar clip</button></div></div>`;$('#clipPlayer').scrollIntoView({behavior:'smooth',block:'center'})});
+function addMyVid(n,u){S.myvids=S.myvids||[];if(!S.myvids.some(m=>m.u===u&&m.n===n))S.myvids.unshift({n,u})}
+function renderMyVids(){
+  if(!S.myvids){S.myvids=CLIPS.map(([a,id])=>({n:'',u:'tt:'+id,a}));save()}
+  const names=[...new Set(P().flatMap(p=>p.ex.map(e=>e.n)))],keep=$('#mvEx').value;
+  $('#mvEx').innerHTML='<option value="">General (sin ejercicio)</option>'+names.map(n=>`<option ${keep===n?'selected':''}>${esc(n)}</option>`).join('');
+  $('#clips').innerHTML=S.myvids.length?S.myvids.map((m,i)=>{const v=parseVid(m.u)||{k:'url'};
+    return `<div class="vcard" data-mv="${i}" role="button" tabindex="0"><div class="th">${v.k==='yt'?`<img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy">`:''}<span class="pl"><svg class="i"><use href="#i-play"/></svg></span><button class="mvdel" data-mvdel="${i}" aria-label="Borrar">×</button></div><div class="cap"><b>${esc(m.n||'General')}</b><small>${v.k==='yt'?'YouTube':v.k==='tt'?'TikTok':'Enlace'}${m.a?' · @'+esc(m.a):''}</small></div></div>`}).join(''):'<p class="sub">Aún no has guardado vídeos.</p>';
+}
+$('#mvSave').onclick=()=>{const u=$('#mvUrl').value.trim(),v=parseVid(u),n=$('#mvEx').value;if(!v)return alert('Pega un enlace válido de YouTube o TikTok.');
+  const code=v.k==='url'?u:v.k+':'+v.id;addMyVid(n,code);if(n){S.vlinks=S.vlinks||{};S.vlinks[n]=code}save();$('#mvUrl').value='';renderMyVids();toast('✓ Vídeo guardado')};
+$('#clips').addEventListener('click',e=>{const d=e.target.closest('[data-mvdel]');if(d){e.stopPropagation();if(confirm('¿Borrar este vídeo guardado?')){S.myvids.splice(+d.dataset.mvdel,1);save();renderMyVids()}return}
+  const c=e.target.closest('[data-mv]');if(!c)return;const m=S.myvids[+c.dataset.mv],v=parseVid(m.u);if(!v)return;
+  $('#clipPlayer').outerHTML=`<div id="clipPlayer"><div class="tag" style="margin-top:14px">${esc(m.n||'Vídeo')}</div>${player(v)}<div class="vlinks" style="justify-content:center"><button class="btn ghost icon" id="clipClose">Cerrar</button></div></div>`;$('#clipPlayer').scrollIntoView({behavior:'smooth',block:'center'})});
 document.addEventListener('click',e=>{if(e.target.id==='clipClose')$('#clipPlayer').outerHTML='<div class="player tt" id="clipPlayer" style="display:none"></div>'});
 function renderTechVid(){
-  S.vlinks=S.vlinks||{};const g=(P().flatMap(p=>p.ex).find(e=>e.n===techName)||{}).g;
-  const rec=VIDS.filter(v=>!g||v.g.includes(g)),cur=S.vlinks[techName]||'';
-  $('#tcPick').innerHTML=`<option value="">— Recomendados para ${esc(g||'este grupo')} —</option>`+
-    `<optgroup label="YouTube">${VIDS.map(v=>`<option value="yt:${v.id}" ${cur==='yt:'+v.id?'selected':''}>${esc(v.t)}</option>`).join('')}</optgroup>`+
-    `<optgroup label="Clips TikTok">${CLIPS.map(([a,id],i)=>`<option value="tt:${id}" ${cur==='tt:'+id?'selected':''}>Clip ${i+1} · @${esc(a)}</option>`).join('')}</optgroup>`+
-    (cur&&!/^(yt|tt):/.test(cur)?`<option value="${esc(cur)}" selected>Mi enlace</option>`:'');
+  S.vlinks=S.vlinks||{};const cur=S.vlinks[techName]||'',v=parseVid(cur),q=encodeURIComponent(techName+' técnica correcta');
   $('#tcUrl').value='';
-  const v=parseVid(cur);
-  $('#tcVid').innerHTML=v?player(v):`<div class="vgrid">${rec.slice(0,4).map(ytCard).join('')}</div>`;
+  $('#tcVid').innerHTML=(v?player(v)+`<div class="vlinks"><button class="btn ghost icon" id="tcUnset">Quitar este vídeo</button></div>`:'')+
+    `<a class="ytbtn" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener"><span class="yt">▶</span><span><b>${v?'Más vídeos':'Ver vídeos'} de «${esc(techName)}»</b><small>Búsqueda en YouTube de este ejercicio exacto. Copia el enlace que te guste y guárdalo abajo.</small></span></a>`;
 }
-$('#tcPick').onchange=()=>{S.vlinks=S.vlinks||{};const v=$('#tcPick').value;if(v)S.vlinks[techName]=v;else delete S.vlinks[techName];save();renderTechVid()};
-$('#tcUrlSave').onclick=()=>{const u=$('#tcUrl').value.trim(),v=parseVid(u);if(!v)return alert('Pega un enlace válido de YouTube o TikTok.');S.vlinks=S.vlinks||{};S.vlinks[techName]=v.k==='url'?u:v.k+':'+v.id;save();renderTechVid()};
-$('#tcVid').addEventListener('click',e=>{const c=e.target.closest('[data-yt]');if(c)$('#tcVid').innerHTML=player({k:'yt',id:c.dataset.yt})});
+$('#tcUrlSave').onclick=()=>{const u=$('#tcUrl').value.trim(),v=parseVid(u);if(!v)return alert('Pega un enlace válido de YouTube o TikTok.');const code=v.k==='url'?u:v.k+':'+v.id;S.vlinks=S.vlinks||{};S.vlinks[techName]=code;addMyVid(techName,code);save();renderTechVid();toast('✓ Vídeo guardado')};
+$('#tcVid').addEventListener('click',e=>{if(e.target.id==='tcUnset'){delete S.vlinks[techName];save();renderTechVid()}});
 
 let techName='',techURL='';
 async function openTech(n){
   techName=n;const k=pat(n);
-  $('#tcTitle').textContent=n;$('#tcTag').textContent='Técnica · animación orientativa';
-  $('#tcFig').innerHTML=fig(k,(P().flatMap(p=>p.ex).find(e=>e.n===n)||{}).g);
+  $('#tcTitle').textContent=n;$('#tcTag').textContent='Técnica';
+  $('#tcFig').innerHTML=exPic(n,(P().flatMap(p=>p.ex).find(e=>e.n===n)||{}).g);
   $('#tcCues').innerHTML=(PAT[k]||PAT.stand).c.map(c=>`<li>${esc(c)}</li>`).join('');
-  $('#tcYT').href='https://www.youtube.com/results?search_query='+encodeURIComponent(n+' técnica correcta');$('#tcTT').href='https://www.tiktok.com/search?q='+encodeURIComponent(n+' técnica');
+  $('#tcTT').href='https://www.tiktok.com/search?q='+encodeURIComponent(n+' técnica');
   $('#tcMap').innerHTML=bodyMap(musclesFor(n));renderTechVid();
   await renderMine();open('tech');
 }
@@ -1114,7 +1160,7 @@ function renderFocus(){
   const x=p.ex[FZ.i],e=exLog(TODAY,current,x),ad=advice(x),vs=(e&&e.sets||[]).map((s,i)=>s&&+s.reps>0?`<span>S${i+1} · ${+s.kg||0}×${s.reps} ✓</span>`:'').join('');
   $('#fBody').innerHTML=`<div class="fbody">
     <div class="tag">Ejercicio ${FZ.i+1} de ${n} · ${esc(x.g)}</div><h2>${esc(x.n)}</h2><div class="sub">${x.lo}–${x.hi} reps · deja ${esc(x.rir)} en reserva</div>
-    <button class="ffig" data-ftech title="Ver técnica y vídeo">${fig(pat(x.n),x.g)}</button>
+    <button class="ffig" data-ftech title="Ver técnica y vídeo">${exPic(x.n,x.g)}</button>
     <div class="hint ${ad.go?'go':''}" style="text-align:left">${ad.go?'▲ ':''}${ad.txt}</div>
     <div class="fset">Serie <b>${FZ.s+1}</b> de ${x.s}</div>
     <div class="steppers">
@@ -1169,6 +1215,7 @@ function show(view){$$('.view').forEach(v=>v.classList.toggle('show',v.id===view
   try{sessionStorage.setItem('atletiq-view',view)}catch(e){}window.scrollTo(0,0)}
 document.addEventListener('click',ev=>{
   const fo=ev.target.closest('[data-focus]');if(fo){openFocus(+fo.dataset.focus);return}
+  if(ev.target.closest('[data-gospot]')){$('#focus').classList.remove('open');show('opciones');setTimeout(()=>{const i=$('#oSpot');i.scrollIntoView({block:'center'});i.focus()},150);return}
   const v=ev.target.closest('[data-view]');if(v){if(v.dataset.goday){current=+v.dataset.goday;renderRoutine()}show(v.dataset.view);return}
   if(ev.target.closest('[data-onb]')){openOnb();return}
   const o=ev.target.closest('[data-open]');if(o){open(o.dataset.open);return}
@@ -1184,7 +1231,7 @@ $('#importFile').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)
 $('#wipe').onclick=async()=>{if(!confirm('¿Borrar TODOS los registros, ajustes y fotos? No se puede deshacer.'))return;localStorage.removeItem('atletiq-v3');localStorage.removeItem('atletiq-v2');try{await idb('readwrite',s=>s.clear())}catch(e){}load();applyTheme();renderAll();renderPhotos()};
 let rT;window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(()=>{renderHome();if($('#progreso').classList.contains('show'))renderProgress()},150)});
 
-function renderAll(){renderHome();renderRoutine();renderOptions();if($('#progreso').classList.contains('show'))renderProgress()}
+function renderAll(){renderMusic();renderHome();renderRoutine();renderOptions();if($('#progreso').classList.contains('show'))renderProgress()}
 
 // ===== Instalación y modo sin conexión =====
 let deferredPrompt;
