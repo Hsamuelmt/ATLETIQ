@@ -1,5 +1,5 @@
 ﻿// ATLETIQ service worker: cache-first para que funcione sin conexiÃ³n.
-const CACHE = 'atletiq-v10';
+const CACHE = 'atletiq-v11';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './icon-maskable.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
@@ -16,4 +16,20 @@ self.addEventListener('fetch', e => {
     return;
   }
   e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
+});
+// Recordatorio de racha en segundo plano (Periodic Background Sync: Chrome Android con la app instalada)
+self.addEventListener('periodicsync', e => {
+  if (e.tag !== 'cal-reminder') return;
+  e.waitUntil((async () => {
+    const r = await (await caches.open('atletiq-state')).match('state'); if (!r) return;
+    const st = await r.json(), now = new Date(), d = now.toISOString().slice(0, 10);
+    const [h, m] = (st.time || '08:00').split(':').map(Number);
+    if (!st.on || st.done === d || now.getHours() * 60 + now.getMinutes() < h * 60 + m) return;
+    await self.registration.showNotification(st.streak ? `🔥 Racha de ${st.streak} días en juego` : 'Calistenia de hoy',
+      { body: 'Dominadas, flexiones, fondos y pierna antes de entrenar.', icon: 'icon-192.png', badge: 'icon-192.png', tag: 'atletiq-cal' });
+  })());
+});
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  e.waitUntil(clients.matchAll({ type: 'window' }).then(cs => cs.length ? cs[0].focus() : clients.openWindow('./index.html')));
 });

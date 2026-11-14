@@ -139,7 +139,7 @@ label.f{display:block;font-size:12px;color:var(--muted);font-weight:600}label.f 
 .mymedia video,.mymedia img{width:100%;max-height:360px;border-radius:10px;background:#000;display:block;margin-top:10px;object-fit:contain}
 .edprev{width:110px;margin-top:10px;background:var(--field);border:1px solid var(--line);border-radius:10px;padding:4px}
 .fig .sh{fill:var(--line);opacity:.6}
-.body{display:block;width:100%;height:auto}.body .mu,.mini .mu{stroke:var(--panel);stroke-width:1.1;transition:fill .3s}.body .bs,.mini .bs{fill:var(--mu2)}.body text{fill:var(--muted);font-size:9px;font-weight:600;letter-spacing:.8px}
+.body{display:block;width:100%;height:auto}.body .mu,.mini .mu{stroke:var(--panel);stroke-width:7;stroke-linejoin:round;transition:fill .3s}.body .bs,.mini .bs{fill:var(--mu2);stroke:var(--panel);stroke-width:7;stroke-linejoin:round}.body text{fill:var(--muted);font-size:80px;font-weight:700;letter-spacing:8px}.body .mu:hover{filter:brightness(1.15)}
 .day .mini{display:block;width:100%;height:86px;margin:8px 0 2px}
 .techgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.techgrid .techfig{margin:0;max-width:none}
 .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:8px}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
@@ -242,6 +242,38 @@ button,.nav,.day,.vcard,.obt,summary{-webkit-user-select:none;user-select:none}
 .install{display:none}.install.vis{display:inline-flex}
 table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding:6px}td{border-top:1px solid var(--line);padding:8px 6px}
 .tablewrap{overflow-x:auto}
+/* Calistenia */
+.cal{margin-top:14px}.calhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.streak{display:grid;justify-items:center;padding:8px 14px;border-radius:14px;background:var(--field);border:1px solid var(--line);min-width:86px}
+.streak b{font-size:26px;line-height:1;font-variant-numeric:tabular-nums}.streak span{font-size:11px;color:var(--muted)}
+.streak.on{background:linear-gradient(135deg,#ff8a3d,#ff4d4d);border-color:transparent;color:#fff}.streak.on span{color:#fff;opacity:.9}
+.callist{display:grid;gap:6px}
+.calrow{display:grid;grid-template-columns:34px minmax(0,1fr) 72px 64px;gap:10px;align-items:center;padding:8px 10px;border-radius:12px;background:var(--field);border:1px solid transparent;transition:.2s}
+.calrow.ok{border-color:color-mix(in srgb,var(--acc) 50%,transparent);background:color-mix(in srgb,var(--acc) 10%,var(--field))}
+.calchk{width:30px;height:30px;border-radius:50%;border:2px solid var(--line2);background:transparent;color:var(--acc-ink);font-weight:900;cursor:pointer}
+.calrow.ok .calchk{background:var(--acc);border-color:var(--acc)}
+.calname b{display:block;font-size:14px}.calname .sub{font-size:12px}
+.calin{position:relative}.calin input{padding:7px 6px;text-align:center;font-size:15px}.calin small{display:block;text-align:center;font-size:10px;color:var(--muted);margin-top:1px}
+@media(max-width:600px){.calrow{grid-template-columns:30px minmax(0,1fr) 58px 52px;gap:7px;padding:8px}}
+/* Opciones tipo ajustes */
+.settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 18px;align-items:start}
+.sgroup h3{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin:0 0 8px 6px;font-weight:700}
+.slist{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 16px;border-top:1px solid var(--line);min-height:54px;width:100%;background:none;border-left:0;border-right:0;border-bottom:0;color:var(--text);font:inherit;text-align:left}
+.srow:first-child{border-top:0}.srow>span:first-child{font-size:14.5px;font-weight:600}.srow small{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:1px}
+.srow input:not([type=checkbox]),.srow select{width:auto;max-width:150px;text-align:right;background:var(--field);padding:8px 10px}
+.srow.col{flex-direction:column;align-items:stretch}.srow.col input,.srow.col .seg{max-width:none;text-align:left;margin-top:0}
+.srow.link{cursor:pointer}.srow.link:hover{background:var(--field)}.chev2{color:var(--muted);font-size:22px;line-height:1}
+.srow .swatches{margin:0}.srow .swatches button{width:28px;height:28px}
+.snote{font-size:12px;color:var(--muted);margin:8px 6px 0}
+.sw{appearance:none;-webkit-appearance:none;width:46px;height:28px;border-radius:99px;background:var(--line2);position:relative;cursor:pointer;flex:none;transition:.2s;padding:0;border:0}
+.sw:after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:.2s}
+.sw:checked{background:var(--acc)}.sw:checked:after{left:21px}
+.caled{display:grid;grid-template-columns:minmax(0,1fr) 46px 10px 50px 58px 34px;gap:6px;align-items:center;margin-top:6px}
+.caled input{padding:7px 8px;font-size:14px}.caled>span{text-align:center;color:var(--muted)}.caled.hd{order:-1;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}.caled.hd span{text-align:left}
+#calEdit{display:flex;flex-direction:column}
+@media(max-width:900px){.settings{grid-template-columns:minmax(0,1fr)}}
+
 /* Fotos de ejercicio (inicio/fin alternando) */
 .exph{position:relative;display:block;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#fff}
 .exph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
@@ -310,6 +342,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
   </div>
   <div class="card installtip" id="iosTip" hidden><svg class="i"><use href="#i-download"/></svg><div><b>Instala ATLETIQ en tu iPhone</b><span class="sub">Toca <svg class="i"><use href="#i-share"/></svg> Compartir y luego «Añadir a pantalla de inicio».</span></div><button class="btn ghost icon" id="iosTipX" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button></div>
   <section class="card hero" id="todayCard"></section>
+  <section class="card cal" id="calCard"></section>
   <details class="card fold" id="ciFold">
     <summary><span class="ico"><svg class="i"><use href="#i-moon"/></svg></span><div><div class="tag">Chequeo de recuperación</div><b id="ciSum">¿Cómo llegas hoy? · 10 segundos</b></div></summary>
     <div class="foldbody"><div id="checkin"></div><div id="checkinMsg"></div></div>
@@ -410,32 +443,44 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;colo
 
 <!-- OPCIONES -->
 <div id="opciones" class="view">
-  <header class="top"><div><div class="tag">Hazla tuya</div><h1><span class="accent">Opciones</span></h1></div></header>
-  <div class="opts">
-    <section class="card"><div class="tag">Apariencia</div><h2>Tema</h2>
-      <div class="seg" id="themeSeg"><button data-theme-set="dark">Oscuro</button><button data-theme-set="light">Claro</button><button data-theme-set="auto">Automático</button></div>
-      <div class="tag" style="margin-top:18px">Color de acento</div><div class="swatches" id="swatches"></div>
-      <label class="f" style="margin-top:16px">Tu nombre (saludo en Hoy)<input id="oName" maxlength="24" placeholder="Opcional"></label>
-    </section>
-    <section class="card"><div class="tag">Entrenamiento</div><h2>Ajustes</h2>
-      <div class="fields">
-        <label class="f">Descanso compuestos (s)<input type="number" id="oRestH" min="30" max="600" step="15"></label>
-        <label class="f">Descanso aislamientos (s)<input type="number" id="oRestL" min="30" max="600" step="15"></label>
-        <label class="f">Subida carga ≥ 40 kg<input type="number" id="oIncB" min="0.5" max="10" step="0.5"></label>
-        <label class="f">Subida carga &lt; 40 kg<input type="number" id="oIncS" min="0.25" max="5" step="0.25"></label>
-        <label class="f">Semanas por bloque<input type="number" id="oWeeks" min="3" max="8"></label>
-        <label class="f" style="grid-column:1/-1">Música: enlace de Spotify (playlist, álbum o canción)<input id="oSpot" placeholder="https://open.spotify.com/playlist/…"></label>
-        <label class="f">Sonido al terminar descanso<select id="oSound"><option value="1">Sí</option><option value="0">No</option></select></label>
-      </div>
-    </section>
-    <section class="card"><div class="tag">Rutina</div><h2>Plan</h2>
-      <p class="sub">Puedes cambiar, añadir o quitar ejercicios en <b>Rutina</b> con el botón <svg class="i"><use href="#i-edit"/></svg>. Tu historial se conserva.</p>
-      <div class="form"><button class="btn primary" data-onb>Rehacer configuración guiada</button><button class="btn danger" id="resetPlan">Restaurar plan original</button></div>
-    </section>
-    <section class="card"><div class="tag">Tus datos</div><h2>Copia de seguridad</h2>
-      <p class="sub">Todo se guarda en este dispositivo. Exporta de vez en cuando (las fotos no se incluyen).</p>
-      <div class="form"><button class="btn primary" id="exportBtn">Exportar</button><label class="btn ghost">Importar<input type="file" id="importFile" accept=".json" hidden></label><button class="btn danger" id="wipe">Borrar todo</button></div>
-    </section>
+  <header class="top"><div><div class="tag">Hazla tuya</div><h1>Opciones</h1></div></header>
+  <div class="settings">
+    <section class="sgroup"><h3>Apariencia</h3><div class="slist">
+      <div class="srow col"><span>Tema</span><div class="seg" id="themeSeg"><button data-theme-set="dark">Oscuro</button><button data-theme-set="light">Claro</button><button data-theme-set="auto">Auto</button></div></div>
+      <div class="srow"><span>Color de acento</span><div class="swatches" id="swatches"></div></div>
+      <label class="srow"><span>Tu nombre</span><input id="oName" maxlength="24" placeholder="Opcional"></label>
+    </div></section>
+
+    <section class="sgroup"><h3>Calistenia diaria y recordatorios</h3><div class="slist">
+      <label class="srow"><span>Bloque obligatorio antes de entrenar<small>Aparece en Hoy y cuenta tu racha</small></span><input type="checkbox" class="sw" id="calOn"></label>
+      <div class="srow"><span>Notificaciones<small id="notifState"></small></span><button class="btn" id="notifBtn">Activar</button></div>
+      <label class="srow"><span>Hora del recordatorio</span><input type="time" id="calTime"></label>
+      <div class="srow col"><span>Ejercicios <small>Sube el lastre cuando la app te lo indique</small></span><div id="calEdit"></div><button class="btn ghost" id="calAdd" style="margin-top:8px">+ Añadir ejercicio</button></div>
+    </div><p class="snote">El aviso llega al abrir la app después de la hora elegida. Con la app instalada en Android, Chrome también puede avisarte en segundo plano. iPhone necesita iOS 16.4+ y la app añadida a la pantalla de inicio.</p></section>
+
+    <section class="sgroup"><h3>Entrenamiento</h3><div class="slist">
+      <label class="srow"><span>Descanso en compuestos<small>segundos</small></span><input type="number" id="oRestH" min="30" max="600" step="15"></label>
+      <label class="srow"><span>Descanso en aislamientos<small>segundos</small></span><input type="number" id="oRestL" min="30" max="600" step="15"></label>
+      <label class="srow"><span>Subida de carga ≥ 40 kg</span><input type="number" id="oIncB" min="0.5" max="10" step="0.5"></label>
+      <label class="srow"><span>Subida de carga &lt; 40 kg</span><input type="number" id="oIncS" min="0.25" max="5" step="0.25"></label>
+      <label class="srow"><span>Semanas por bloque</span><input type="number" id="oWeeks" min="3" max="8"></label>
+      <label class="srow"><span>Sonido al terminar el descanso</span><select id="oSound"><option value="1">Sí</option><option value="0">No</option></select></label>
+    </div></section>
+
+    <section class="sgroup"><h3>Música</h3><div class="slist">
+      <label class="srow col"><span>Spotify<small>Playlist, álbum o canción · Compartir → Copiar enlace</small></span><input id="oSpot" placeholder="https://open.spotify.com/playlist/…"></label>
+    </div></section>
+
+    <section class="sgroup"><h3>Plan</h3><div class="slist">
+      <button class="srow link" data-onb><span>Rehacer configuración guiada</span><span class="chev2">›</span></button>
+      <button class="srow link" id="resetPlan"><span class="bad">Restaurar plan original<small>Tus registros se conservan</small></span><span class="chev2">›</span></button>
+    </div></section>
+
+    <section class="sgroup"><h3>Tus datos</h3><div class="slist">
+      <button class="srow link" id="exportBtn"><span>Exportar copia de seguridad<small>Archivo .json (sin fotos)</small></span><span class="chev2">›</span></button>
+      <label class="srow link"><span>Importar copia</span><span class="chev2">›</span><input type="file" id="importFile" accept=".json" hidden></label>
+      <button class="srow link" id="wipe"><span class="bad">Borrar todos los datos</span><span class="chev2">›</span></button>
+    </div></section>
   </div>
 </div>
 </main>
@@ -628,7 +673,7 @@ function renderOptions(){
   const map={oName:'name',oRestH:'restH',oRestL:'restL',oIncB:'incB',oIncS:'incS',oWeeks:'weeks',oSound:'sound'};
   for(const id in map){const el=$('#'+id);el.value=c[map[id]];el.onchange=()=>{const v=el.type==='number'?+el.value:el.value;if(el.type==='number'&&!(v>0))return renderOptions();c[map[id]]=id==='oSound'?+v:v;save();renderAll()}}
   $('#planState').textContent=S.custom?'Plan personalizado':'Plan original';
-  const sp=$('#oSpot');sp.value=c.spot||'';sp.onchange=()=>{const u=sp.value.trim();if(u&&!spotEmbed(u)){alert('Pega un enlace de Spotify (playlist, álbum o canción). En la app: Compartir → Copiar enlace.');sp.value=c.spot||'';return}c.spot=u;save();renderMusic();toast(u?'♫ Spotify conectado':'Música quitada')};
+  renderCalEditor();const sp=$('#oSpot');sp.value=c.spot||'';sp.onchange=()=>{const u=sp.value.trim();if(u&&!spotEmbed(u)){alert('Pega un enlace de Spotify (playlist, álbum o canción). En la app: Compartir → Copiar enlace.');sp.value=c.spot||'';return}c.spot=u;save();renderMusic();toast(u?'♫ Spotify conectado':'Música quitada')};
 }
 
 // ===== Vista Hoy =====
@@ -779,6 +824,67 @@ function renderProgress(){renderBadges();renderHistory();
   $('#eTable').innerHTML=hist.length?`<table><thead><tr><th>Fecha</th><th>Series</th><th>Mejor</th><th>1RM est.</th></tr></thead><tbody>${hist.slice(-8).reverse().map(h=>`<tr><td>${h.d}</td><td>${h.sets.map(s=>`${+s.kg||0}×${s.reps}`).join(', ')}</td><td>${+h.best.kg||0}×${h.best.reps}</td><td>${h.e.toFixed(1)} kg</td></tr>`).join('')}</tbody></table>`:'<p class="sub">Aún no hay registros de este ejercicio.</p>';
 }
 
+
+// ===== Calistenia diaria (obligatoria antes de entrenar) =====
+const CAL_DEF=[{id:'c1',n:'Dominadas',s:3,r:6,kg:0},{id:'c2',n:'Flexiones',s:3,r:15,kg:0},{id:'c3',n:'Fondos en paralelas',s:3,r:10,kg:0},
+ {id:'c4',n:'Sentadilla a una pierna (pistol)',s:3,r:6,kg:0},{id:'c5',n:'Zancada búlgara sin peso',s:2,r:12,kg:0},{id:'c6',n:'Elevación de piernas colgado',s:2,r:10,kg:0}];
+function calInit(){S.cal=S.cal||{};S.cal.items=S.cal.items||clone(CAL_DEF);S.cal.log=S.cal.log||{};if(S.cal.on===undefined)S.cal.on=1;if(!S.cal.time)S.cal.time='08:00'}
+calInit();
+const calDay=d=>S.cal.log[d]||{};
+const calDone=d=>{const l=calDay(d);return S.cal.items.length>0&&S.cal.items.every(x=>l[x.id]&&l[x.id].ok)};
+function calStreak(){let n=0,d=new Date();if(!calDone(iso(d)))d=addDays(d,-1);for(let g=0;g<1000&&calDone(iso(d));g++){n++;d=addDays(d,-1)}return n}
+function calBest(){const ds=Object.keys(S.cal.log).sort();let b=0,c=0,prev=null;ds.forEach(d=>{if(!calDone(d)){c=0;prev=null;return}c=prev&&iso(addDays(parse(prev),1))===d?c+1:1;prev=d;b=Math.max(b,c)});return b}
+// Progresión: 3 días seguidos al tope → sube lastre (o reps si es sin peso)
+function calHint(x){const days=Object.keys(S.cal.log).filter(d=>d<TODAY).sort().slice(-3);
+  const top=days.length===3&&days.every(d=>{const e=S.cal.log[d][x.id];return e&&e.ok&&(+e.reps||0)>=x.s*x.r&&(+e.kg||0)>=x.kg});
+  return top?(x.kg>0||/dominada|fondo/i.test(x.n)?`Listo para subir: +${x.kg>0?2.5:2.5} kg de lastre`:`Listo para subir: +2 reps por serie`):''}
+function renderCal(){
+  const el=$('#calCard');if(!el)return;if(!S.cal.on){el.hidden=true;return}el.hidden=false;
+  const l=calDay(TODAY),done=S.cal.items.filter(x=>l[x.id]&&l[x.id].ok).length,n=S.cal.items.length,st=calStreak();
+  el.innerHTML=`<div class="calhead"><div><div class="tag">Antes de entrenar · obligatorio</div><h2>Calistenia diaria</h2></div>
+    <div class="streak ${calDone(TODAY)?'on':''}"><b>${st}</b><span>${st===1?'día':'días'} de racha</span></div></div>
+    <div class="progress"><i style="width:${n?done/n*100:0}%"></i></div>
+    <div class="callist">${S.cal.items.map(x=>{const e=l[x.id]||{},h=calHint(x);return `<div class="calrow ${e.ok?'ok':''}">
+      <button class="calchk" data-calok="${x.id}" aria-label="Marcar ${esc(x.n)}">${e.ok?'✓':''}</button>
+      <div class="calname"><b>${esc(x.n)}</b><span class="sub">${x.s}×${x.r}${x.kg>0?` · +${x.kg} kg`:''}${h?` · <span class="up">${h}</span>`:''}</span></div>
+      <label class="calin"><input type="number" inputmode="numeric" data-calr="${x.id}" value="${e.reps??''}" placeholder="${x.s*x.r}"><small>reps</small></label>
+      <label class="calin"><input type="number" inputmode="decimal" step="0.5" data-calk="${x.id}" value="${e.kg??''}" placeholder="${x.kg||0}"><small>kg</small></label></div>`}).join('')}</div>
+    <p class="sub" style="margin:10px 0 0">${calDone(TODAY)?'✓ Hecho hoy. La racha sigue viva.':`${done}/${n} hechos. Anota el total de reps y el lastre (0 si es sin peso).`} Mejor racha: ${calBest()} días.</p>`;
+}
+function calSet(id,f,v){const l=S.cal.log[TODAY]=S.cal.log[TODAY]||{};const e=l[id]=l[id]||{};e[f]=v;
+  const x=S.cal.items.find(z=>z.id===id);if(f==='reps'&&x&&+v>=x.s*x.r)e.ok=true;save()}
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset.calr)calSet(t.dataset.calr,'reps',t.value===''?'':+t.value);if(t.dataset.calk)calSet(t.dataset.calk,'kg',t.value===''?'':+t.value)});
+document.addEventListener('change',e=>{if(e.target.dataset.calr||e.target.dataset.calk){const was=calDone(TODAY);renderCal();if(!was&&calDone(TODAY))toast(`🔥 Racha de ${calStreak()} días`)}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-calok]');if(!b)return;const id=b.dataset.calok,l=S.cal.log[TODAY]=S.cal.log[TODAY]||{},x=l[id]=l[id]||{};
+  const was=calDone(TODAY);x.ok=!x.ok;save();renderCal();celebrate(b);if(!was&&calDone(TODAY))toast(`🔥 Calistenia completa · racha de ${calStreak()} días`)});
+// Editor de la lista de calistenia (Opciones)
+$('#calOn').onchange=e=>{S.cal.on=e.target.checked?1:0;save();renderCal()};
+$('#calTime').onchange=e=>{S.cal.time=e.target.value||'08:00';S.cal.notified='';save();syncSW()};
+$('#notifBtn').onclick=enableNotif;
+function renderCalEditor(){const el=$('#calEdit');if(!el)return;
+  el.innerHTML=S.cal.items.map((x,i)=>`<div class="caled"><input value="${esc(x.n)}" data-ce="${i}" data-f="n" aria-label="Ejercicio"><input type="number" value="${x.s}" data-ce="${i}" data-f="s" aria-label="Series" min="1"><span>×</span><input type="number" value="${x.r}" data-ce="${i}" data-f="r" aria-label="Reps" min="1"><input type="number" step="0.5" value="${x.kg}" data-ce="${i}" data-f="kg" aria-label="Lastre kg"><button class="btn ghost icon" data-cedel="${i}" aria-label="Quitar">×</button></div>`).join('')
+   +`<div class="caled hd"><span>Ejercicio</span><span>Series</span><span></span><span>Reps</span><span>Lastre kg</span><span></span></div>`;
+  $('#calOn').checked=!!S.cal.on;$('#calTime').value=S.cal.time;$('#notifState').textContent=notifLabel();}
+document.addEventListener('change',e=>{const t=e.target;if(t.dataset.ce===undefined)return;const x=S.cal.items[+t.dataset.ce];x[t.dataset.f]=t.dataset.f==='n'?t.value.trim()||x.n:Math.max(0,+t.value||0);save();renderCal()});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-cedel]');if(b){S.cal.items.splice(+b.dataset.cedel,1);save();renderCalEditor();renderCal()}
+  if(e.target.id==='calAdd'){S.cal.items.push({id:uid(),n:'Nuevo ejercicio',s:3,r:10,kg:0});save();renderCalEditor();renderCal()}});
+
+// ===== Recordatorios =====
+const notifLabel=()=>!('Notification' in window)?'Este navegador no admite notificaciones':Notification.permission==='granted'?'Activadas':Notification.permission==='denied'?'Bloqueadas en el navegador':'Sin activar';
+async function enableNotif(){if(!('Notification' in window))return alert('Tu navegador no admite notificaciones. En iPhone, instala la app en la pantalla de inicio (iOS 16.4+).');
+  const r=await Notification.requestPermission();S.cal.notif=r==='granted'?1:0;save();renderCalEditor();
+  if(r==='granted'){notify('ATLETIQ','Recordatorios activados. Te avisaremos de tu calistenia diaria.');
+    try{const reg=await navigator.serviceWorker.ready;if(reg.periodicSync)await reg.periodicSync.register('cal-reminder',{minInterval:6*3600e3})}catch(e){}}}
+async function notify(t,body){try{const reg=await navigator.serviceWorker.getRegistration();if(reg)return reg.showNotification(t,{body,icon:'icon-192.png',badge:'icon-192.png',tag:'atletiq-cal'});new Notification(t,{body,icon:'icon-192.png'})}catch(e){}}
+// Comprueba al abrir la app y cada minuto mientras está abierta
+function checkReminder(){if(!S.cal.on||!S.cal.notif||!('Notification' in window)||Notification.permission!=='granted')return;
+  const now=new Date(),[h,m]=S.cal.time.split(':').map(Number);if(now.getHours()*60+now.getMinutes()<h*60+m)return;
+  if(calDone(TODAY)||S.cal.notified===TODAY)return;S.cal.notified=TODAY;save();
+  const st=calStreak();notify(st?`🔥 Racha de ${st} días en juego`:'Calistenia de hoy',st?'Haz tus dominadas, flexiones y fondos para no perderla.':'Empieza tu racha: dominadas, flexiones, fondos y pierna.')}
+// Pasa el estado al service worker para el aviso en segundo plano (Android con app instalada)
+async function syncSW(){try{const c=await caches.open('atletiq-state');await c.put('state',new Response(JSON.stringify({on:S.cal.on&&S.cal.notif,time:S.cal.time,done:calDone(TODAY)?TODAY:'',streak:calStreak()})))}catch(e){}}
+setInterval(checkReminder,60000);
+
 // ===== Historial de sesiones =====
 function renderHistory(){
   const fmt=d=>parse(d).toLocaleDateString('es',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
@@ -925,22 +1031,17 @@ function exPic(n,g,cls){const id=photoId(n),fb=fig(pat(n),g);cls=cls||'exph';
   if(!id)return `<span class="${cls} vec">${fb}</span>`;
   return `<span class="${cls}" data-fb="${esc(fb)}"><img src="${IMGBASE}${id}/0.jpg" alt="" loading="lazy" onerror="const p=this.parentNode;p.classList.add('vec');p.innerHTML=p.dataset.fb"><img class="b" src="${IMGBASE}${id}/1.jpg" alt="" loading="lazy" onerror="this.remove()"></span>`}
 // ===== Mapa muscular =====
-const SHP={
- delt:'M72 44Q86 41 92 54Q92 64 86 70Q82 58 72 50Z',pec:'M61 48L72 47Q84 53 85 66Q78 78 61 77Z',bic:'M85 71Q93 70 94 84Q93 96 89 102Q83 92 85 71Z',
- fore:'M89 105Q97 106 99 122Q99 136 95 143L89 143Q86 124 89 105Z',abs:'M61 80L71 80Q73 100 71 122L61 124Z',abs2:'M73 79Q80 77 83 88L81 116Q77 121 73 121Q75 100 73 79Z',
- quad:'M62 136Q74 128 85 132Q89 154 85 178Q79 188 71 186Q64 172 62 150Z',shin:'M70 201Q79 198 83 208Q83 226 79 240L72 240Q68 222 70 201Z',
- trap:'M60 30L66 33Q72 42 84 47L74 53Q66 62 60 80Z',lat:'M62 60Q72 55 84 65Q85 84 75 100Q67 108 61 110Z',low:'M61 111Q68 109 75 104L75 122L61 124Z',
- tri:'M85 70Q94 70 94 84Q93 97 88 102Q82 90 85 70Z',glu:'M61 125Q77 118 85 130Q88 146 75 151Q64 151 61 143Z',ham:'M63 153Q74 151 85 153Q87 172 81 187L69 187Q62 172 63 153Z',
- calf:'M68 198Q81 194 85 208Q85 224 79 234L72 234Q66 220 68 198Z'};
-const VIEW={f:{delt:'Hombro',pec:'Pecho',bic:'Bíceps',fore:'Antebrazo',abs:'Abdomen',abs2:'Abdomen',quad:'Cuádriceps',shin:'Gemelo'},
- b:{trap:'Espalda',lat:'Espalda',low:'Espalda',delt:'Hombro',tri:'Tríceps',fore:'Antebrazo',glu:'Glúteo/femoral',ham:'Glúteo/femoral',calf:'Gemelo'}};
-const BASE={f:'<path class="bs" d="M89 146Q97 146 97 156Q95 164 90 162Q88 154 89 146ZM61 125L72 123L82 119L85 130L62 134ZM69 193a7 6 0 1 0 14 0a7 6 0 1 0-14 0ZM71 242L80 242Q84 248 70 249Z"/>',
- b:'<path class="bs" d="M89 146Q97 146 97 156Q95 164 90 162Q88 154 89 146ZM68 193a7 5 0 1 0 14 0a7 5 0 1 0-14 0ZM72 234L79 234L79 244L72 244Z"/>'};
+// Polígonos anatómicos: react-body-highlighter (MIT, © giavinh79)
+const BODY_F=[["CHEST",["518 416 510 551 580 580 678 555 706 473 620 416", "298 465 314 555 408 580 482 551 478 420 376 420"]],["OBLIQUES",["686 633 673 571 588 596 600 641 604 833 657 788 665 698", "339 784 331 718 310 633 322 571 408 592 392 633 392 837"]],["ABS",["563 592 580 641 584 780 584 927 563 984 551 1041 514 1078 510 845 506 673 510 571", "437 588 486 571 490 673 486 845 482 1073 445 1037 408 914 408 784 412 645"]],["BICEPS",["167 682 180 714 229 661 290 539 278 494 204 559", "714 494 702 547 763 661 816 718 829 690 788 555"]],["TRICEPS",["694 555 694 616 759 727 776 702 755 673", "224 694 298 555 298 608 229 731"]],["NECK",["555 237 506 335 506 392 616 400 706 449 694 367 633 351 584 306", "290 449 302 371 363 351 412 302 445 245 490 339 486 392 380 396"]],["FRONT_DELTOIDS",["784 531 796 478 792 412 759 380 710 363 722 429 714 473", "282 473 212 531 200 478 204 408 245 371 286 371 269 433"]],["HEAD",["424 29 400 118 420 196 461 233 498 253 547 224 576 192 592 102 571 24 498 0"]],["ABDUCTORS",["527 1102 543 1249 600 1102 620 1000 649 943 600 927 567 1045", "478 1106 449 1253 420 1159 404 1131 396 1073 380 1024 347 939 396 922 416 992 437 1053"]],["QUADRICEPS",["347 988 371 1082 371 1278 343 1371 310 1327 294 1200 282 1114 294 1008 322 947", "633 1057 645 1000 669 947 702 1012 710 1118 682 1331 653 1376 624 1286 620 1114", "388 1294 384 1122 412 1184 445 1294 429 1351 400 1461 363 1465 355 1400", "596 1457 555 1290 608 1139 612 1302 641 1396 629 1465", "327 1384 265 1457 257 1367 257 1273 269 1143 294 1335", "718 1131 739 1241 739 1404 727 1457 665 1384 702 1335"]],["KNEES",["339 1400 347 1433 355 1473 363 1510 351 1567 298 1567 273 1527 273 1473 302 1441", "657 1400 722 1478 722 1522 698 1571 649 1567 629 1510"]],["CALVES",["714 1604 735 1535 767 1612 796 1678 784 1878 796 1955 747 1955", "249 1947 278 1649 282 1604 261 1543 249 1576 224 1616 208 1678 220 1882 208 1955", "727 1951 698 1592 653 1584 641 1624 641 1653 657 1771", "355 1584 359 1624 359 1669 351 1722 351 1767 322 1820 306 1873 269 1947 273 1878 282 1804 286 1755 290 1698 298 1641 302 1588"]],["FOREARM",["61 886 102 751 147 702 163 743 192 735 45 976 0 1000", "845 698 833 735 800 731 951 984 1000 1004 935 894 898 763", "776 722 776 776 804 841 853 898 922 1012 947 996", "69 1012 135 906 188 841 216 771 212 718 49 988"]]];
+const BODY_B=[["HEAD",["506 0 460 9 409 55 404 128 451 200 557 200 591 136 596 47 557 13"]],["TRAPEZIUS",["447 217 477 217 472 383 477 647 383 532 353 409 311 366 391 332 438 272", "523 217 557 217 566 272 609 328 689 366 647 404 617 532 523 647 532 383"]],["BACK_DELTOIDS",["294 370 230 391 174 443 183 536 243 494 272 464", "711 370 783 396 826 447 817 536 749 489 723 451"]],["UPPER_BACK",["311 387 281 489 285 553 340 753 472 711 472 664 366 540 336 413", "689 387 719 494 715 562 660 753 528 711 528 664 634 545 664 417"]],["TRICEPS",["268 498 179 557 145 723 166 817 217 638 268 557", "736 502 821 557 860 732 834 821 779 630 732 557", "268 583 268 685 230 753 191 774 226 655", "728 583 770 647 804 774 766 753 728 689"]],["LOWER_BACK",["477 728 345 770 353 834 494 1021 468 830", "523 728 655 770 647 834 506 1021 532 838"]],["FOREARM",["864 757 911 834 932 940 1000 1064 962 1043 881 894 843 838", "136 757 89 838 68 936 0 1064 38 1043 123 885 157 830", "813 796 774 779 791 847 911 1038 932 1089 945 1047", "187 796 221 779 209 843 94 1030 68 1085 51 1047"]],["GLUTEAL",["447 996 302 1085 298 1187 315 1260 472 1213 494 1149", "553 991 511 1145 523 1209 681 1260 698 1191 694 1085"]],["ADDUCTOR",["481 1230 447 1230 413 1255 451 1443 485 1357 489 1294", "519 1226 557 1234 591 1260 549 1443 519 1362 511 1294"]],["HAMSTRING",["289 1221 311 1294 366 1260 353 1353 345 1502 294 1583 289 1468 277 1413 272 1315", "715 1217 694 1289 638 1260 655 1366 664 1502 711 1583 715 1477 728 1421 736 1319", "387 1255 443 1460 404 1668 362 1528 370 1353", "617 1255 634 1362 643 1532 600 1668 562 1464"]],["KNEES",["345 1532 311 1591 336 1664 374 1626", "664 1536 630 1630 668 1664 694 1591"]],["CALVES",["294 1604 285 1672 247 1796 238 1928 255 1970 285 1932 298 1800 319 1711 319 1668", "374 1651 353 1677 332 1719 311 1804 302 1919 340 2000 387 1906 391 1689", "630 1651 613 1685 617 1906 664 1996 706 1919 689 1796 668 1702", "706 1604 723 1685 757 1791 766 1928 745 1966 723 1936 706 1796 681 1681"]],["LEFT_SOLEUS",["285 1957 302 1957 336 2017 306 2200 285 2136 268 1983"]],["RIGHT_SOLEUS",["698 1957 719 1957 736 1983 719 2132 702 2196 672 2021"]]];
+const MUSC={CHEST:'Pecho',UPPER_BACK:'Espalda',LOWER_BACK:'Espalda',TRAPEZIUS:'Espalda',FRONT_DELTOIDS:'Hombro',BACK_DELTOIDS:'Hombro',BICEPS:'Bíceps',TRICEPS:'Tríceps',
+ FOREARM:'Antebrazo',ABS:'Abdomen',OBLIQUES:'Abdomen',QUADRICEPS:'Cuádriceps',ADDUCTOR:'Cuádriceps',ABDUCTORS:'Glúteo/femoral',GLUTEAL:'Glúteo/femoral',HAMSTRING:'Glúteo/femoral',
+ CALVES:'Gemelo',LEFT_SOLEUS:'Gemelo',RIGHT_SOLEUS:'Gemelo'};
 function bodyMap(w,cls){
-  const fill=v=>v>0?`color-mix(in srgb,var(--hot) ${Math.round(28+72*Math.min(1,v))}%,var(--mu))`:'var(--mu)';
-  const half=v=>BASE[v]+Object.entries(VIEW[v]).map(([k,g])=>`<path class="mu" d="${SHP[k]}" style="fill:${fill(w[g]||0)}"><title>${g}</title></path>`).join('');
-  const one=v=>`<ellipse class="bs" cx="60" cy="19" rx="10.5" ry="12.5"/>${v==='f'?'<path class="bs" d="M55 30L65 30L66 42L54 42Z"/>':''}<g>${half(v)}</g><g transform="translate(120 0) scale(-1 1)">${half(v)}</g>`;
-  return `<svg class="${cls||'body'}" viewBox="0 0 245 ${cls?252:264}" role="img" aria-label="Mapa muscular">${one('f')}<g transform="translate(125 0)">${one('b')}</g>${cls?'':'<text x="60" y="262" text-anchor="middle">FRENTE</text><text x="185" y="262" text-anchor="middle">ESPALDA</text>'}</svg>`;
+  const fill=v=>v>0?`color-mix(in srgb,var(--hot) ${Math.round(30+70*Math.min(1,v))}%,var(--mu))`:'var(--mu)';
+  const one=(D,dx)=>`<g transform="translate(${dx} 0)">${D.map(([m,ps])=>{const g=MUSC[m];return ps.map(pt=>`<polygon class="${g?'mu':'bs'}" points="${pt}" style="${g?'fill:'+fill(w[g]||0):''}">${g?`<title>${g}</title>`:''}</polygon>`).join('')}).join('')}</g>`;
+  const H=cls?2220:2400;
+  return `<svg class="${cls||'body'}" viewBox="0 0 2100 ${H}" role="img" aria-label="Mapa muscular">${one(BODY_F,0)}${one(BODY_B,1100)}${cls?'':'<text x="500" y="2330" text-anchor="middle">FRENTE</text><text x="1600" y="2330" text-anchor="middle">ESPALDA</text>'}</svg>`;
 }
 const SEC={bench:['Hombro','Tríceps'],incline:['Hombro','Tríceps'],dip:['Tríceps','Hombro'],ohp:['Tríceps'],pulldown:['Bíceps'],row:['Bíceps','Hombro'],pullover:['Tríceps'],
  squat:['Glúteo/femoral'],lunge:['Glúteo/femoral'],hinge:['Espalda'],thrust:['Cuádriceps'],fly:['Hombro'],reverse:['Espalda'],shrug:['Antebrazo'],curl:['Antebrazo']};
@@ -1136,6 +1237,7 @@ function initVals(x,s){
   FZ.kg=kg;FZ.reps=reps;
 }
 function openFocus(day){
+  if(S.cal.on&&!calDone(TODAY)&&!openFocus.ok){if(!confirm('Primero toca tu calistenia diaria (dominadas, flexiones, fondos…).\n\n¿Empezar el entreno igualmente?')){show('inicio');setTimeout(()=>$('#calCard').scrollIntoView({behavior:'smooth',block:'center'}),100);return}openFocus.ok=1}
   current=day;const p=P()[day];if(!p||!p.ex.length)return toast('Este día no tiene ejercicios');
   const l=getLog(TODAY,day);let i=p.ex.findIndex(x=>!(l&&l.ex[x.id]&&l.ex[x.id].done));if(i<0)i=p.ex.length;
   FZ={i,s:0,start:Date.now()};if(i<p.ex.length){FZ.s=nextSet(p.ex[i]);initVals(p.ex[i],FZ.s)}
@@ -1231,14 +1333,14 @@ $('#importFile').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)
 $('#wipe').onclick=async()=>{if(!confirm('¿Borrar TODOS los registros, ajustes y fotos? No se puede deshacer.'))return;localStorage.removeItem('atletiq-v3');localStorage.removeItem('atletiq-v2');try{await idb('readwrite',s=>s.clear())}catch(e){}load();applyTheme();renderAll();renderPhotos()};
 let rT;window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(()=>{renderHome();if($('#progreso').classList.contains('show'))renderProgress()},150)});
 
-function renderAll(){renderMusic();renderHome();renderRoutine();renderOptions();if($('#progreso').classList.contains('show'))renderProgress()}
+function renderAll(){renderMusic();renderCal();renderCalEditor();syncSW();renderHome();renderRoutine();renderOptions();if($('#progreso').classList.contains('show'))renderProgress()}
 
 // ===== Instalación y modo sin conexión =====
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;$('#installBtn').classList.add('vis')});
 $('#installBtn').onclick=async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;$('#installBtn').classList.remove('vis')};
 if('serviceWorker' in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('sw.js').catch(()=>{});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)save()});addEventListener('pagehide',save);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)save()});addEventListener('pagehide',save);document.addEventListener('visibilitychange',()=>{if(!document.hidden){checkReminder();renderCal()}else syncSW()});setTimeout(checkReminder,2500);
 if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
 
 applyTheme();renderAll();checkBadges();
