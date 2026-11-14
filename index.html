@@ -242,6 +242,30 @@ button,.nav,.day,.vcard,.obt,summary{-webkit-user-select:none;user-select:none}
 .install{display:none}.install.vis{display:inline-flex}
 table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding:6px}td{border-top:1px solid var(--line);padding:8px 6px}
 .tablewrap{overflow-x:auto}
+.note.dl{background:color-mix(in srgb,var(--cyan) 12%,var(--panel));border-color:color-mix(in srgb,var(--cyan) 45%,var(--line));color:var(--text)}.note .btn{margin-top:8px}
+.bk{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:14px;padding:14px 16px;border-color:color-mix(in srgb,var(--orange) 45%,var(--line))}.bk[hidden]{display:none}.bk b{display:block;font-size:14px}
+.calmini{display:flex;gap:14px;align-items:center;width:100%;margin-top:14px;padding:12px 16px;text-align:left;color:var(--text);cursor:pointer;font:inherit}.calmini[hidden]{display:none}.calmini>div{flex:1}.calmini b{font-size:14px}
+.calmini .streak{min-width:64px;padding:6px 10px}.calmini .streak b{font-size:20px}
+.approx{margin-top:10px;text-align:left}.approx>summary{font-size:12.5px;color:var(--muted);font-weight:700;padding:4px 0}
+.apx{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.apxb{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted);padding:8px;cursor:pointer;font-size:11px;font-weight:700}.apxb b{display:block;font-size:16px;color:var(--text)}.apxb small{font-size:11px}
+.apxb.done{background:color-mix(in srgb,var(--acc) 15%,var(--panel));border-color:var(--acc)}
+.sks{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.sks .sk{width:auto;margin:0;cursor:default}.sks .sk .face{padding:16px;background:linear-gradient(145deg,var(--card-a),var(--card-b))}#skTabs button{white-space:nowrap;padding:8px 12px}
+.skf{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center}
+.skh{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-start}.skh b{font-size:17px;display:block}.skh small{color:var(--muted);font-size:12px}
+.skstar{border:0;background:transparent;font-size:22px;color:var(--line2);cursor:pointer;transition:transform .2s,color .2s;line-height:1}.skstar.on{color:#facc15;transform:scale(1.15)}
+.skring{position:relative;width:78px;height:78px}.skring svg{width:100%;height:100%;transform:rotate(-90deg)}.skring .rt{fill:none;stroke:var(--track);stroke-width:5}.skring .rf{fill:none;stroke:var(--acc);stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset .8s}
+.skring span{position:absolute;inset:0;display:grid;place-content:center;font-weight:900;font-size:22px;text-align:center}.skring small{font-size:11px;color:var(--muted);font-weight:600}
+.sknow b{display:block;font-size:15px;margin:2px 0}.sknow small{color:var(--muted);font-size:12px}.sknow small b{display:inline;font-size:12px;color:var(--text)}
+.skact{grid-column:1/-1;display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}.skact .btn.primary{flex:1}
+.sklv{grid-column:1/-1;display:flex;gap:4px;margin-top:4px}.sklv i{flex:1;height:5px;border-radius:9px;background:var(--track)}.sklv i.on{background:var(--acc)}.sklv i.cur{background:color-mix(in srgb,var(--acc) 40%,var(--track))}
+.skb{transform:rotateY(180deg)}.skb ol{margin:8px 0;padding-left:20px;font-size:13px}.skb li{margin:5px 0;color:var(--muted)}.skb li b{color:var(--text)}.skb li.ok b{text-decoration:line-through;opacity:.6}.skb li.cur b{color:var(--acc-t)}.skb small{font-size:11.5px}
+.hold{position:fixed;inset:0;z-index:80;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);display:none;place-items:center;padding:20px}.hold.open{display:grid}
+.holdin{width:100%;max-width:420px;text-align:center;position:relative}.holdin #holdX{position:absolute;right:0;top:0}
+.holdt{font-size:min(28vw,140px);font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-4px;line-height:1;margin:14px 0}
+.hold.run .holdt{color:var(--acc-t);animation:pulse2 1s infinite}@keyframes pulse2{50%{transform:scale(1.03)}}
+
 .porc{display:inline-block;font-size:11px;font-weight:700;color:var(--acc-t);background:color-mix(in srgb,var(--acc) 12%,transparent);padding:1px 8px;border-radius:99px;margin:3px 0 2px}
 .why{font-size:12.5px;line-height:1.4;color:var(--muted);padding:8px 10px;border-radius:10px;background:var(--field)}.why b{display:block;color:var(--text);font-size:12.5px;margin-bottom:2px}
 .why2{font-size:13px;color:var(--muted);margin:10px 0 0;line-height:1.45}.why2 b{color:var(--text)}
@@ -391,7 +415,7 @@ input:focus,select:focus{outline:2px solid color-mix(in srgb,var(--cyan) 70%,tra
  .shell{grid-template-columns:minmax(0,1fr)}.top h1{overflow-wrap:anywhere}
  .side{position:static;height:auto;border:0;padding:14px 16px 0;display:block}
  .coach{display:none}
- .nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--panel);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+ .nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--panel);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
  .nav button{flex-direction:column;gap:3px;font-size:10.5px;padding:7px 2px;justify-content:center;text-align:center}
  .nav button.active{box-shadow:none;color:var(--acc-t);background:transparent}
 
@@ -410,6 +434,7 @@ input:focus,select:focus{outline:2px solid color-mix(in srgb,var(--cyan) 70%,tra
   <nav class="nav" aria-label="Secciones">
     <button class="active" data-view="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Hoy</button>
     <button data-view="rutina"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg>Rutina</button>
+    <button data-view="calistenia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16"/><path d="M8 4v5a4 4 0 0 0 8 0V4"/><circle cx="12" cy="13" r="0"/><path d="M12 13v7M9 20h6"/></svg>Calistenia</button>
     <button data-view="progreso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 16l4-5 4 3 6-8"/></svg>Progreso</button>
 
     <button data-view="opciones"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>Opciones</button>
@@ -428,8 +453,10 @@ input:focus,select:focus{outline:2px solid color-mix(in srgb,var(--cyan) 70%,tra
     <div class="card stat"><div class="tag">Racha</div><div class="metric" id="stStreak">0 <small>días</small></div><div class="sub">El domingo de descanso no la rompe</div></div>
   </div>
   <div class="card installtip" id="iosTip" hidden><svg class="i"><use href="#i-download"/></svg><div><b>Instala ATLETIQ en tu iPhone</b><span class="sub">Toca <svg class="i"><use href="#i-share"/></svg> Compartir y luego «Añadir a pantalla de inicio».</span></div><button class="btn ghost icon" id="iosTipX" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <div id="dlHome"></div>
+  <div class="card bk" id="bkBanner" hidden></div>
   <section class="card hero" id="todayCard"></section>
-  <section class="card cal" id="calCard"></section>
+  <button class="card calmini" data-view="calistenia" id="calMini"></button>
   <details class="card fold" id="ciFold">
     <summary><span class="ico"><svg class="i"><use href="#i-moon"/></svg></span><div><div class="tag">Chequeo de recuperación</div><b id="ciSum">¿Cómo llegas hoy? · 10 segundos</b></div></summary>
     <div class="foldbody"><div id="checkin"></div><div id="checkinMsg"></div></div>
@@ -456,6 +483,7 @@ input:focus,select:focus{outline:2px solid color-mix(in srgb,var(--cyan) 70%,tra
     <div class="headline"><div><div class="tag" id="detailSub"></div><h2 id="detailTitle"></h2><span class="sub" id="detailDesc"></span></div><div style="display:flex;gap:6px;flex:none"><span class="pill" id="detailCount"></span><button class="btn ghost icon" id="editDay" title="Renombrar día" aria-label="Renombrar día"><svg class="i"><use href="#i-edit"/></svg></button></div></div>
     <button class="btn primary big" id="startFocus" style="margin-top:14px"><svg class="i"><use href="#i-play"/></svg> Empezar modo entreno</button>
     <div class="music" style="margin-top:12px"></div>
+    <div id="dlRut"></div>
     <details class="tipfold"><summary><svg class="i"><use href="#i-bulb"/></svg> Consejo para este día</summary><div class="note" id="detailTip" style="margin-top:8px"></div></details>
     <div id="exList"></div>
     <button class="btn ghost" id="addEx" style="margin-top:14px;width:100%">+ Añadir ejercicio</button>
@@ -473,6 +501,20 @@ input:focus,select:focus{outline:2px solid color-mix(in srgb,var(--cyan) 70%,tra
     </div>
   </details>
 </div>
+
+<!-- CALISTENIA -->
+<div id="calistenia" class="view">
+  <header class="top"><div><div class="tag">Peso corporal · fuerza relativa</div><h1>Calistenia</h1></div></header>
+  <section class="card cal" id="calCard"></section>
+  <section class="card" style="margin-top:14px"><div class="headline"><div><div class="tag">Progresión</div><h2>Lastre y repeticiones</h2></div><select id="calChSel" style="max-width:220px" aria-label="Ejercicio"></select></div>
+    <svg class="chart" id="calChart" role="img" aria-label="Progresión"></svg><p class="sub" id="calChTxt"></p></section>
+  <div class="headline" style="margin:22px 2px 10px"><div><div class="tag">Habilidades</div><h2 style="margin:4px 0">Objetivos de calistenia</h2></div>
+    <div class="seg" id="skTabs" style="margin:0"><button data-skf="goal">Mis objetivos</button><button data-skf="all">Todas</button></div></div>
+  <p class="sub" style="margin:-4px 2px 10px">Marca con ★ las habilidades que quieres conseguir. Mide tu aguante o anota repeticiones: al llegar al objetivo se desbloquea el siguiente nivel.</p>
+  <div class="sks" id="skList"></div>
+</div>
+
+<div class="hold" id="hold"><div class="holdin"><button class="btn ghost icon" id="holdX" aria-label="Cerrar">✕</button><div class="tag">Aguante</div><h2 id="holdName"></h2><div class="holdt" id="holdT">0.0</div><p class="sub" id="holdGoal"></p><button class="btn primary huge" id="holdBtn">Empezar</button></div></div>
 
 <!-- PROGRESO -->
 <div id="progreso" class="view">
@@ -544,7 +586,7 @@ input:focus,select:focus{outline:2px solid color-mix(in srgb,var(--cyan) 70%,tra
       <div class="srow"><span>Notificaciones<small id="notifState"></small></span><button class="btn" id="notifBtn">Activar</button></div>
       <label class="srow"><span>Hora del recordatorio</span><input type="time" id="calTime"></label>
       <div class="srow col"><span>Ejercicios <small>Sube el lastre cuando la app te lo indique</small></span><div id="calEdit"></div><button class="btn ghost" id="calAdd" style="margin-top:8px">+ Añadir ejercicio</button></div>
-    </div><p class="snote">El aviso llega al abrir la app después de la hora elegida. Con la app instalada en Android, Chrome también puede avisarte en segundo plano. iPhone necesita iOS 16.4+ y la app añadida a la pantalla de inicio.</p></section>
+    </div><p class="snote">En el móvil, «Hacer copia» abre el menú de compartir: elige Google Drive. Te avisaremos en Hoy si pasan 7 días sin copia.</p><p class="snote">El aviso llega al abrir la app después de la hora elegida. Con la app instalada en Android, Chrome también puede avisarte en segundo plano. iPhone necesita iOS 16.4+ y la app añadida a la pantalla de inicio.</p></section>
 
     <section class="sgroup"><h3>Entrenamiento</h3><div class="slist">
       <label class="srow"><span>Descanso en compuestos<small>segundos</small></span><input type="number" id="oRestH" min="30" max="600" step="15"></label>
@@ -566,7 +608,8 @@ input:focus,select:focus{outline:2px solid color-mix(in srgb,var(--cyan) 70%,tra
     </div></section>
 
     <section class="sgroup"><h3>Tus datos</h3><div class="slist">
-      <button class="srow link" id="exportBtn"><span>Exportar copia de seguridad<small>Archivo .json (sin fotos)</small></span><span class="chev2">›</span></button>
+      <button class="srow link" id="exportBtn"><span>Hacer copia de seguridad<small id="bkState"></small></span><span class="chev2">›</span></button>
+      <div class="srow"><span>Fotos sin conexión<small>Guarda en el móvil las fotos de tu rutina</small></span><button class="btn" id="offBtn">Descargar</button></div>
       <label class="srow link"><span>Importar copia</span><span class="chev2">›</span><input type="file" id="importFile" accept=".json" hidden></label>
       <button class="srow link" id="wipe"><span class="bad">Borrar todos los datos</span><span class="chev2">›</span></button>
     </div></section>
@@ -769,7 +812,7 @@ function renderOptions(){
 }
 
 // ===== Vista Hoy =====
-function renderHome(){
+function renderHome(){{const d=$('#dlHome');if(d)d.innerHTML=deloadBanner()}
   const W=+S.cfg.weeks||4,wk=Math.floor((monday(new Date())-parse(S.start))/6048e5)+1;
   $('#todayTag').textContent=`${DAYS[new Date().getDay()]} ${new Date().getDate()} · semana ${wk} del bloque`;
   $('#hello').innerHTML=S.cfg.name?`Vamos, ${esc(S.cfg.name)}. <span class="accent">Hoy suma.</span>`:`Construye músculo. <span class="accent">Mide el proceso.</span>`;
@@ -788,7 +831,7 @@ function renderHome(){
     const R=34,C=2*Math.PI*R;
     $('#todayCard').innerHTML=`<div class="herogrid"><div class="heroL">
       <div class="tag">Sesión de hoy</div><h2 class="big">${esc(p.t)}</h2>
-      <p class="sub">${n} ejercicios · ~${Math.round(p.ex.reduce((a,x)=>a+x.s*((x.lo<=8?S.cfg.restH:S.cfg.restL)+40),0)/60)} min${ups?` · <span class="up">▲ ${ups} para subir carga</span>`:''}</p>
+      <p class="sub">${n} ejercicios · ~${Math.round(p.ex.reduce((a,x)=>a+SN(x)*((x.lo<=8?S.cfg.restH:S.cfg.restL)+40),0)/60)} min${ups?` · <span class="up">▲ ${ups} para subir carga</span>`:''}</p>
       <div class="herobtns"><button class="btn primary big" data-focus="${todayIdx}">${c===n&&n?'✓ Sesión completa':c?'<svg class="i"><use href="#i-play"/></svg> Continuar entreno':'<svg class="i"><use href="#i-play"/></svg> Empezar entreno'}</button><button class="btn ghost" data-view="rutina" data-goday="${todayIdx}">Ver rutina</button></div>
     </div>
     <div class="heroR"><svg class="ring" viewBox="0 0 80 80"><circle cx="40" cy="40" r="${R}" class="rt"/><circle cx="40" cy="40" r="${R}" class="rf" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct)}"/></svg><div class="ringtxt"><b>${c}/${n}</b><small>hechos</small></div>${bodyMap(dayWeights(p),'mini')}</div></div>
@@ -824,7 +867,7 @@ function renderDays(){
   $('#days').innerHTML=P().map((p,i)=>{const c=doneCount(TODAY,i);
     return `<button class="day ${i===current?'active':''} ${i===todayIdx?'today':''}" data-day="${i}"><strong>${p.d}</strong><b>${esc(p.t)}</b>${bodyMap(dayWeights(p),'mini')}<span>${c?c+'/'+p.ex.length+' hechos':p.ex.length+' ejercicios'}</span></button>`}).join('');
 }
-function renderRoutine(){
+function renderRoutine(){{const d=$('#dlRut');if(d)d.innerHTML=deloadBanner()}
   renderDays();
   const p=P()[current];
   $('#detailSub').textContent=`${p.d} · registro de hoy, ${new Date().toLocaleDateString('es',{day:'numeric',month:'short'})}`;
@@ -836,10 +879,10 @@ function renderRoutine(){
   $('#startFocus').innerHTML=doneCount(TODAY,current)?'<svg class="i"><use href="#i-play"/></svg> Continuar modo entreno':'<svg class="i"><use href="#i-play"/></svg> Empezar modo entreno';
   $('#exList').innerHTML=p.ex.length?p.ex.map(x=>{
     const e=exLog(TODAY,current,x),prev=previous(x),ad=advice(x),rest=x.lo<=8?S.cfg.restH:S.cfg.restL,nv=validSets(e).length;
-    let rows='';for(let s=0;s<x.s;s++){const cur=(e&&e.sets[s])||{},pv=prev&&prev.sets[s]||{};
+    let rows='';for(let s=0;s<SN(x);s++){const cur=(e&&e.sets[s])||{},pv=prev&&prev.sets[s]||{};
       rows+=`<span class="sub">${s+1}</span><input type="number" step="0.25" inputmode="decimal" placeholder="${esc(pv.kg||'kg')}" value="${esc(cur.kg)}" data-id="${x.id}" data-s="${s}" data-f="kg" aria-label="Kg serie ${s+1}"><input type="number" inputmode="numeric" placeholder="${esc(pv.reps||x.lo+'–'+x.hi)}" value="${esc(cur.reps)}" data-id="${x.id}" data-s="${s}" data-f="reps" aria-label="Reps serie ${s+1}"><button class="btn ghost icon" data-rest="${rest}" title="Descanso ${rest}s"><svg class="i"><use href="#i-timer"/></svg></button>`}
-    const dots=Array.from({length:x.s},(_,i)=>`<i class="${i<nv?'on':''}"></i>`).join('');
-    return `<div class="ex ${e&&e.done?'isdone':''} ${x.id===openEx?'open':''}" data-ex="${x.id}"><header data-toggle="${x.id}"><div class="exhead"><button class="thumb" data-tech="${x.id}" title="Ver técnica" aria-label="Ver técnica de ${esc(x.n)}">${exPic(x.n,x.g,'exph sm')}</button><div><b>${esc(x.n)}</b>${(H=>H?`<div class="porc">${esc(H.h)}</div>`:'')(headOf(x.n))}<div class="sub">${x.s} × ${x.lo}–${x.hi} · RIR ${esc(x.rir)}${ad.go?' · <span class="up">▲ sube</span>':''}</div><div class="dots">${dots}</div></div></div><div class="actions"><button class="btn ${e&&e.done?'done':''}" data-done="${x.id}">${e&&e.done?'✓':'Hecho'}</button><span class="chev">⌄</span></div></header>
+    const dots=Array.from({length:SN(x)},(_,i)=>`<i class="${i<nv?'on':''}"></i>`).join('');
+    return `<div class="ex ${e&&e.done?'isdone':''} ${x.id===openEx?'open':''}" data-ex="${x.id}"><header data-toggle="${x.id}"><div class="exhead"><button class="thumb" data-tech="${x.id}" title="Ver técnica" aria-label="Ver técnica de ${esc(x.n)}">${exPic(x.n,x.g,'exph sm')}</button><div><b>${esc(x.n)}</b>${(H=>H?`<div class="porc">${esc(H.h)}</div>`:'')(headOf(x.n))}<div class="sub">${SN(x)} × ${x.lo}–${x.hi} · RIR ${esc(isDeload()?'3':x.rir)}${isDeload()?' · descarga':''}${ad.go?' · <span class="up">▲ sube</span>':''}</div><div class="dots">${dots}</div></div></div><div class="actions"><button class="btn ${e&&e.done?'done':''}" data-done="${x.id}">${e&&e.done?'✓':'Hecho'}</button><span class="chev">⌄</span></div></header>
     <div class="exbody"><div class="hint ${ad.go?'go':''}">${ad.go?'▲ ':''}${ad.txt}</div>
     <div class="sets"><span class="h">#</span><span class="h">Kg</span><span class="h">Reps</span><span></span>${rows}</div>
     <div class="exfoot"><button class="btn ghost icon" data-tech="${x.id}">Cómo se hace</button><button class="btn ghost icon" data-edit="${x.id}"><svg class="i"><use href="#i-edit"/></svg> Cambiar</button><span class="chip">${esc(x.g)}</span></div></div></div>`}).join(''):'<p class="sub" style="margin-top:14px">Este día no tiene ejercicios. Añade uno abajo.</p>';
@@ -856,7 +899,7 @@ function setFromInput(inp){const x=P()[current].ex.find(z=>z.id===inp.dataset.id
 $('#exList').addEventListener('input',ev=>{const inp=ev.target.closest('input[data-id]');if(inp)setFromInput(inp)});
 $('#exList').addEventListener('change',ev=>{const inp=ev.target.closest('input[data-id]');if(!inp)return;
   const {x,e,s}=setFromInput(inp);
-  if(validSets(e).length>=x.s)e.done=true;save();const pr=checkPR(x.n,e.sets[s]);if(pr)toast(pr);refreshRoutineStatus();renderHome()});
+  if(validSets(e).length>=SN(x))e.done=true;save();const pr=checkPR(x.n,e.sets[s]);if(pr)toast(pr);refreshRoutineStatus();renderHome()});
 $('#exList').addEventListener('click',ev=>{const t=ev.target.closest('button');
   if(!t){const h=ev.target.closest('[data-toggle]');if(h){const id=h.dataset.toggle,el=h.parentElement,o=!el.classList.contains('open');$$('#exList .ex').forEach(x=>x.classList.remove('open'));if(o){el.classList.add('open');openEx=id}else openEx=null}return}
   if(t.dataset.done){const x=P()[current].ex.find(z=>z.id===t.dataset.done),e=exLog(TODAY,current,x,true);e.done=!e.done;save();refreshRoutineStatus();renderHome()}
@@ -1012,9 +1055,9 @@ function renderCal(){
 function calSet(id,f,v){const l=S.cal.log[TODAY]=S.cal.log[TODAY]||{};const e=l[id]=l[id]||{};e[f]=v;
   const x=S.cal.items.find(z=>z.id===id);if(f==='reps'&&x&&+v>=x.s*x.r)e.ok=true;save()}
 document.addEventListener('input',e=>{const t=e.target;if(t.dataset.calr)calSet(t.dataset.calr,'reps',t.value===''?'':+t.value);if(t.dataset.calk)calSet(t.dataset.calk,'kg',t.value===''?'':+t.value)});
-document.addEventListener('change',e=>{if(e.target.dataset.calr||e.target.dataset.calk){const was=calDone(TODAY);renderCal();if(!was&&calDone(TODAY))toast(`🔥 Racha de ${calStreak()} días`)}});
+document.addEventListener('change',e=>{if(e.target.dataset.calr||e.target.dataset.calk){const was=calDone(TODAY);renderCal();renderCalMini();renderCalChart();if(!was&&calDone(TODAY))toast(`🔥 Racha de ${calStreak()} días`)}});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-calok]');if(!b)return;const id=b.dataset.calok,l=S.cal.log[TODAY]=S.cal.log[TODAY]||{},x=l[id]=l[id]||{};
-  const was=calDone(TODAY);x.ok=!x.ok;save();renderCal();celebrate(b);if(!was&&calDone(TODAY)){toast(`🔥 Calistenia completa · racha de ${calStreak()} días`);SFX.streak();burst(b)}else if(x.ok)SFX.set()});
+  const was=calDone(TODAY);x.ok=!x.ok;save();renderCal();renderCalMini();renderCalChart();celebrate(b);if(!was&&calDone(TODAY)){toast(`🔥 Calistenia completa · racha de ${calStreak()} días`);SFX.streak();burst(b)}else if(x.ok)SFX.set()});
 // Editor de la lista de calistenia (Opciones)
 $('#calOn').onchange=e=>{S.cal.on=e.target.checked?1:0;save();renderCal()};
 $('#calTime').onchange=e=>{S.cal.time=e.target.value||'08:00';S.cal.notified='';save();syncSW()};
@@ -1107,6 +1150,102 @@ const PROG_EST=[
 const progPlan=D=>D.map((p,di)=>({d:p.d,t:p.t,desc:p.desc,tip:p.tip,ex:p.ex.map((e,i)=>({id:uid()+di+i,n:e[0],s:e[1],lo:e[2],hi:e[3],rir:e[4],g:e[5]}))}));
 document.addEventListener('click',e=>{if(e.target.closest('#loadEst')){if(!confirm('¿Cargar el programa «Estética 6 días»? Sustituye tu plan actual; tu historial se conserva.'))return;
   S.plan=progPlan(PROG_EST);S.custom=true;S.prog='est';save();current=todayIdx<6?todayIdx:0;renderAll();toast('✓ Programa Estética 6 días cargado');show('rutina')}});
+
+
+// ===== Semana de descarga =====
+const blockWeek=()=>Math.floor((monday(new Date())-parse(S.start))/6048e5)+1;
+const sundayISO=()=>iso(addDays(monday(new Date()),6));
+function isDeload(){if(S.deloadUntil&&S.deloadUntil>=TODAY)return true;return blockWeek()===(+S.cfg.weeks||4)+1}
+// Series efectivas: en descarga ~60 % del volumen
+const SN=x=>isDeload()?Math.max(1,Math.ceil(x.s*.6)):+x.s;
+function recoveryLow(){let low=0;for(let i=0;i<7;i++){const c=S.checkins[iso(addDays(new Date(),-i))];if(c&&(c.joint>=4||(c.sleep<=2&&c.sore>=4)||c.sore>=5))low++}return low>=3}
+function deloadBanner(){
+  if(isDeload())return `<div class="note dl"><b>Semana de descarga</b> · haz ~60 % de las series con la misma carga y 2–3 reps en reserva. Tus articulaciones y tu sistema nervioso se recuperan y la semana siguiente rendirás más.${blockWeek()>(+S.cfg.weeks||4)?` <button class="btn icon" id="newBlock">Empezar bloque nuevo</button>`:` <button class="btn ghost icon" id="endDeload">Terminar descarga</button>`}</div>`;
+  if(recoveryLow())return `<div class="note alert"><b>Recuperación baja varios días.</b> Una semana de descarga ahora suele rendir más que forzar. <button class="btn icon" id="startDeload">Activar descarga esta semana</button></div>`;
+  return ''}
+document.addEventListener('click',e=>{const id=e.target.id;
+  if(id==='startDeload'){S.deloadUntil=sundayISO();save();renderAll();toast('Semana de descarga activada')}
+  if(id==='endDeload'){S.deloadUntil='';save();renderAll()}
+  if(id==='newBlock'){S.start=iso(monday(new Date()));S.deloadUntil='';save();renderAll();toast('Bloque nuevo: semana 1')}});
+
+// ===== Copia de seguridad =====
+async function backupNow(){const name=`atletiq-${TODAY}.json`,blob=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});
+  S.lastBackup=TODAY;save();renderBackup();
+  try{const f=new File([blob],name,{type:'application/json'});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Copia ATLETIQ',text:'Guárdala en Google Drive, iCloud o envíatela.'});toast('✓ Copia compartida');return}}catch(e){if(e&&e.name==='AbortError')return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();toast('✓ Copia descargada · súbela a tu Drive')}
+const daysSince=d=>d?Math.floor((parse(TODAY)-parse(d))/864e5):Infinity;
+function renderBackup(){const el=$('#bkBanner');if(!el)return;const n=daysSince(S.lastBackup),has=Object.keys(S.logs).length||Object.keys(S.cal.log).length;
+  el.hidden=!(has&&n>=7);if(!el.hidden)el.innerHTML=`<div><b>${n===Infinity?'Aún no tienes copia de seguridad':`Última copia hace ${n} días`}</b><span class="sub">Tus datos solo viven en este navegador. Guárdala en Drive en 1 toque.</span></div><button class="btn primary" id="bkNow">Hacer copia</button>`;
+  const st=$('#bkState');if(st)st.textContent=S.lastBackup?`Última: ${S.lastBackup}`:'Nunca'}
+document.addEventListener('click',e=>{if(e.target.closest('#bkNow,#exportBtn')){e.preventDefault();e.stopImmediatePropagation();backupNow()}},true);
+
+// ===== Fotos sin conexión: el service worker las guarda; aquí se precargan las del plan =====
+async function cachePlanPhotos(btn){const ids=[...new Set(P().flatMap(p=>p.ex.map(x=>photoId(x.n))).filter(Boolean))],urls=ids.flatMap(id=>[0,1].map(k=>`${IMGBASE}${id}/${k}.jpg`));
+  let ok=0;for(const u of urls){try{await fetch(u,{mode:'no-cors'});ok++}catch(e){}if(btn)btn.textContent=`Descargando ${ok}/${urls.length}…`}
+  S.offPhotos=TODAY;save();if(btn)btn.textContent=`✓ ${ok} fotos listas sin conexión`;return ok}
+document.addEventListener('click',e=>{if(e.target.id==='offBtn')cachePlanPhotos(e.target)});
+// precarga silenciosa una vez por semana cuando la app está abierta y hay conexión
+setTimeout(()=>{if(navigator.onLine&&daysSince(S.offPhotos)>=7)(window.requestIdleCallback||setTimeout)(()=>cachePlanPhotos())},6000);
+
+// ===== Habilidades de calistenia =====
+// [nombre del nivel, objetivo, unidad 's'|'reps', claves técnicas]
+const SKILLS=[
+ {id:'fl',n:'Front lever',m:'Dorsal, core, deltoide posterior',lv:[['Tuck front lever',15,'s','Rodillas al pecho, brazos rectos, escápulas deprimidas.'],['Advanced tuck',12,'s','Espalda plana horizontal, cadera alineada.'],['Una pierna',10,'s','Una pierna estirada, la otra recogida.'],['Straddle',8,'s','Piernas abiertas y rectas; empuja la barra hacia la cadera.'],['Front lever completo',5,'s','Cuerpo horizontal y rígido, glúteos apretados.']]},
+ {id:'pl',n:'Planche',m:'Deltoide anterior, pecho, core',lv:[['Planche lean',30,'s','Hombros por delante de las manos, brazos bloqueados.'],['Tuck planche',15,'s','Rodillas al pecho, cadera a la altura de hombros.'],['Advanced tuck',10,'s','Espalda plana, protracción escapular.'],['Straddle planche',6,'s','Piernas abiertas, cuerpo horizontal.'],['Planche completa',3,'s','Piernas juntas, solo apoyan las manos.']]},
+ {id:'mu',n:'Muscle-up',m:'Dorsal, pecho, tríceps',lv:[['Dominadas explosivas al pecho',5,'reps','Tira hasta llevar la barra al esternón.'],['Negativas de muscle-up',5,'reps','Baja lento desde arriba pasando la transición.'],['Muscle-up con banda',5,'reps','Banda ligera; practica la transición rápida.'],['Muscle-up',1,'reps','Tira bajo, inclina el torso por encima de la barra.'],['Muscle-up × 5',5,'reps','Repeticiones limpias sin kipping excesivo.']]},
+ {id:'hs',n:'Pino (handstand)',m:'Hombro, trapecio, core',lv:[['Pino de espaldas a la pared',45,'s','Brazos junto a las orejas, abdomen apretado.'],['Pino de cara a la pared',30,'s','Pecho a la pared, cuerpo en línea.'],['Pino libre',10,'s','Equilibrio con los dedos, mirada a las manos.'],['Pino libre largo',30,'s','Línea recta, mínimas correcciones.'],['Flexión en pino (HSPU)',5,'reps','En la pared primero; cabeza en triángulo con las manos.']]},
+ {id:'ls',n:'L-sit',m:'Abdomen, flexores de cadera, tríceps',lv:[['Tuck L-sit',20,'s','Hombros abajo, rodillas recogidas.'],['L-sit una pierna',15,'s','Alterna la pierna estirada.'],['L-sit',15,'s','Piernas rectas paralelas al suelo.'],['L-sit',30,'s','Puntas estiradas, sin dejar caer cadera.'],['V-sit',5,'s','Piernas por encima de la horizontal.']]},
+ {id:'bl',n:'Back lever',m:'Dorsal, bíceps, pecho',lv:[['Skin the cat',5,'reps','Rota despacio, hombros activos.'],['Tuck back lever',15,'s','Cuerpo boca abajo, rodillas recogidas.'],['Advanced tuck',10,'s','Cadera extendida, espalda plana.'],['Straddle back lever',8,'s','Piernas abiertas, cuerpo horizontal.'],['Back lever completo',5,'s','Bíceps protegido: progresa despacio.']]},
+ {id:'hf',n:'Bandera humana',m:'Oblicuos, dorsal, hombro',lv:[['Bandera vertical',10,'s','Brazo de abajo empuja, el de arriba tira.'],['Tuck flag',8,'s','Rodillas recogidas, cuerpo de lado.'],['Straddle flag',5,'s','Piernas abiertas, cadera alta.'],['Bandera completa',3,'s','Cuerpo horizontal y recto.']]},
+ {id:'oap',n:'Dominada a una mano',m:'Dorsal, bíceps, agarre',lv:[['Dominadas arqueras',5,'reps','Un brazo tira, el otro asiste estirado.'],['Una mano asistida',3,'reps','La otra mano en la muñeca o una toalla.'],['Negativas a una mano',3,'reps','5 s de bajada controlada.'],['Dominada a una mano',1,'reps','Cuerpo tenso, sin girar.']]},
+ {id:'pu',n:'Dominadas (récord)',m:'Dorsal, bíceps',lv:[['10 dominadas',10,'reps','Barbilla sobre la barra, brazos estirados abajo.'],['15 dominadas',15,'reps','Ritmo constante.'],['20 dominadas',20,'reps','Sin balanceo.'],['10 con +20 kg',10,'reps','Lastre con cinturón.'],['5 con +40 kg',5,'reps','Fuerza máxima.']]},
+ {id:'dp',n:'Fondos (récord)',m:'Pecho, tríceps',lv:[['15 fondos',15,'reps','Hombros abajo, baja hasta 90°.'],['25 fondos',25,'reps','Controla la bajada.'],['10 con +20 kg',10,'reps','Lastre con cinturón.'],['5 con +40 kg',5,'reps','Torso algo inclinado.']]},
+ {id:'ps',n:'Flexiones (récord)',m:'Pecho, tríceps, core',lv:[['30 flexiones',30,'reps','Cuerpo en plancha.'],['50 flexiones',50,'reps','Sin parar.'],['10 flexiones arqueras',10,'reps','Por lado.'],['Flexión a una mano',3,'reps','Piernas abiertas para equilibrio.']]},
+ {id:'pi',n:'Pistol squat',m:'Cuádriceps, glúteo, equilibrio',lv:[['Pistol a caja',8,'reps','Baja a un banco con una pierna.'],['Pistol asistido',8,'reps','Sujeta un poste o banda.'],['Pistol completo',5,'reps','Talón apoyado, pierna libre recta.'],['Pistol con +10 kg',5,'reps','Peso al frente como contrapeso.']]}];
+function skState(id){S.sk=S.sk||{};return S.sk[id]=S.sk[id]||{lv:0,best:{},goal:0}}
+let skFilter='goal';
+function renderSkills(){const el=$('#skList');if(!el)return;
+  const list=SKILLS.map(k=>({k,st:skState(k.id)})).sort((a,b)=>b.st.goal-a.st.goal);
+  const shown=skFilter==='goal'&&list.some(o=>o.st.goal)?list.filter(o=>o.st.goal):list;
+  $$('#skTabs button').forEach(b=>b.classList.toggle('on',b.dataset.skf===skFilter));
+  el.innerHTML=shown.map(({k,st})=>{const L=k.lv[Math.min(st.lv,k.lv.length-1)],done=st.lv>=k.lv.length,best=st.best[st.lv]||0,pct=done?1:(st.lv+Math.min(1,best/L[1]))/k.lv.length;
+    return `<div class="sk flip" data-sk="${k.id}"><div class="flipin">
+     <div class="face front skf"><div class="skh"><div><b>${esc(k.n)}</b><small>${esc(k.m)}</small></div><button class="skstar ${st.goal?'on':''}" data-skgoal="${k.id}" aria-label="Marcar objetivo">★</button></div>
+      <div class="skring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" class="rt"/><circle cx="22" cy="22" r="19" class="rf" style="stroke-dasharray:${(2*Math.PI*19).toFixed(1)};stroke-dashoffset:${(2*Math.PI*19*(1-pct)).toFixed(1)}"/></svg><span>${done?'✓':st.lv+1}<small>/${k.lv.length}</small></span></div>
+      <div class="sknow"><span class="tag">${done?'Dominado':'Nivel actual'}</span><b>${esc(done?k.lv[k.lv.length-1][0]:L[0])}</b>${done?'':`<small>Objetivo: ${L[1]} ${L[2]==='s'?'s':'reps'} · tu mejor: <b>${best}</b></small>`}</div>
+      ${done?'':`<div class="skact"><button class="btn primary" data-skrec="${k.id}">${L[2]==='s'?'⏱ Medir aguante':'+ Anotar reps'}</button><button class="btn ghost icon" data-skflip>Técnica ↻</button></div>`}
+      <div class="sklv">${k.lv.map((l,i)=>`<i class="${i<st.lv?'on':i===st.lv?'cur':''}" title="${esc(l[0])}"></i>`).join('')}</div></div>
+     <div class="face back skb"><b>${esc(k.n)} · progresión</b><ol>${k.lv.map((l,i)=>`<li class="${i<st.lv?'ok':i===st.lv?'cur':''}"><b>${esc(l[0])}</b> · ${l[1]} ${l[2]==='s'?'s':l[1]===1?'rep':'reps'}<br><small>${esc(l[3])}</small></li>`).join('')}</ol>
+      <div class="skact"><button class="btn ghost icon" data-sklv="${k.id}" data-d="-1">← Nivel</button><button class="btn ghost icon" data-sklv="${k.id}" data-d="1">Nivel →</button><button class="btn icon" data-skflip>Volver ↻</button></div></div>
+    </div></div>`}).join('');
+}
+function skSave(id,v){const k=SKILLS.find(z=>z.id===id),st=skState(id),L=k.lv[st.lv];if(!L||!(v>0))return;
+  st.best[st.lv]=Math.max(st.best[st.lv]||0,v);st.log=st.log||[];st.log.push({d:TODAY,lv:st.lv,v});
+  if(v>=L[1]){st.lv++;SFX.pr();toast(st.lv>=k.lv.length?`🏆 ¡${k.n} dominado!`:`🔓 Nivel superado: ${L[0]}. Siguiente: ${k.lv[st.lv][0]}`)}else{SFX.set();toast(`Guardado: ${v} ${L[2]==='s'?'s':'reps'} · faltan ${+(L[1]-v).toFixed(1)}`)}
+  save();renderSkills()}
+// Cronómetro de aguante
+let SW={id:null,t0:0,int:null};
+function openHold(id){const k=SKILLS.find(z=>z.id===id),st=skState(id),L=k.lv[st.lv];SW={id,t0:0,int:null};
+  $('#holdName').textContent=L[0];$('#holdGoal').textContent=`Objetivo ${L[1]} s · tu mejor ${st.best[st.lv]||0} s`;$('#holdT').textContent='0.0';$('#holdBtn').textContent='Empezar';$('#hold').classList.add('open');$('#hold').classList.remove('run')}
+function holdToggle(){if(!SW.int){let c=3;$('#holdBtn').textContent='…';const cd=()=>{if(c>0){$('#holdT').textContent=c;SFX.count();c--;SW.int=setTimeout(cd,800)}else{SFX.go();SW.t0=Date.now();$('#hold').classList.add('run');$('#holdBtn').textContent='Parar';let last=0;
+      SW.int=setInterval(()=>{const t=(Date.now()-SW.t0)/1000;$('#holdT').textContent=t.toFixed(1);if(Math.floor(t)>last){last=Math.floor(t);if(last%5===0)SFX.tick()}},100)}};cd()}
+  else{clearInterval(SW.int);clearTimeout(SW.int);const t=SW.t0?+((Date.now()-SW.t0)/1000).toFixed(1):0;SW.int=null;$('#hold').classList.remove('open','run');if(t>0)skSave(SW.id,t)}}
+document.addEventListener('click',e=>{const t=e.target;
+  const g=t.closest('[data-skgoal]');if(g){e.stopPropagation();const st=skState(g.dataset.skgoal);st.goal=st.goal?0:1;save();renderSkills();return}
+  if(t.closest('[data-skflip]')){t.closest('.sk').classList.toggle('flipped');return}
+  const r=t.closest('[data-skrec]');if(r){const k=SKILLS.find(z=>z.id===r.dataset.skrec),L=k.lv[skState(k.id).lv];if(L[2]==='s')openHold(k.id);else{const v=+prompt(`${L[0]}: ¿cuántas repeticiones hiciste?`,'');if(v>0)skSave(k.id,v)}return}
+  const l=t.closest('[data-sklv]');if(l){const k=SKILLS.find(z=>z.id===l.dataset.sklv),st=skState(k.id);st.lv=Math.max(0,Math.min(k.lv.length,st.lv+ +l.dataset.d));save();renderSkills();return}
+  const f=t.closest('[data-skf]');if(f){skFilter=f.dataset.skf;renderSkills();return}
+  if(t.id==='holdBtn')holdToggle();if(t.id==='holdX'){clearInterval(SW.int);clearTimeout(SW.int);SW.int=null;$('#hold').classList.remove('open','run')}});
+// Gráfica de lastre/reps de la calistenia diaria
+function renderCalChart(){const sel=$('#calChSel');if(!sel)return;const items=S.cal.items,cur=items.some(x=>x.id===sel.value)?sel.value:(items.find(x=>/dominada|fondo/i.test(x.n))||items[0]||{}).id;
+  sel.innerHTML=items.map(x=>`<option value="${x.id}" ${x.id===cur?'selected':''}>${esc(x.n)}</option>`).join('');
+  const ds=Object.keys(S.cal.log).sort().filter(d=>S.cal.log[d][cur]),pts=ds.map(d=>{const e=S.cal.log[d][cur];return{x:d,kg:+e.kg||0,r:+e.reps||0}});
+  const useKg=pts.some(q=>q.kg>0);lineChart($('#calChart'),pts.map(q=>({x:q.x,y:useKg?q.kg:q.r})),useKg?'kg':'reps');
+  const last=pts[pts.length-1],first=pts[0];$('#calChTxt').innerHTML=pts.length>1?`${useKg?'Lastre':'Repeticiones'}: ${first[useKg?'kg':'r']} → <b>${last[useKg?'kg':'r']} ${useKg?'kg':'reps'}</b> en ${pts.length} sesiones.`:'Registra el lastre (o las reps) cada día para ver tu progresión.'}
+document.addEventListener('change',e=>{if(e.target.id==='calChSel')renderCalChart()});
+function renderCalMini(){const el=$('#calMini');if(!el)return;if(!S.cal.on){el.hidden=true;return}el.hidden=false;const l=calDay(TODAY),n=S.cal.items.length,d=S.cal.items.filter(x=>l[x.id]&&l[x.id].ok).length,st=calStreak();
+  el.innerHTML=`<span class="streak ${calDone(TODAY)?'on':''}"><b>${st}</b><span>racha</span></span><div><div class="tag">Calistenia diaria</div><b>${calDone(TODAY)?'✓ Hecha hoy':`${d}/${n} ejercicios · obligatoria antes de entrenar`}</b></div><span class="chev2">›</span>`}
 
 // ===== Historial de sesiones =====
 function renderHistory(){
@@ -1458,7 +1597,7 @@ function renderBadges(){
 // ===== 3. Calentamiento =====
 const r25=v=>Math.max(0,Math.round(v/2.5)*2.5);
 function warmHTML(x,kg){
-  const rows=kg>=20?[[.5,8],[.75,4],...(x.lo<=6?[[.9,1]]:[])].map(([f,n],i)=>`<div class="wrow"><div><span class="sub">Aproximación ${i+1} · ${Math.round(f*100)} %</span><br><b>${r25(kg*f)} kg × ${n}</b></div><button class="btn" data-wd>✓</button></div>`).join('')
+  const rows=kg>=20?[[.5,8],[.7,5],[.85,2]].map(([f,n],i)=>`<div class="wrow"><div><span class="sub">Aproximación ${i+1} · ${Math.round(f*100)} %</span><br><b>${r25(kg*f)} kg × ${n}</b></div><button class="btn" data-wd>✓</button></div>`).join('')
     :'<p class="sub">Aún no hay carga de referencia: haz 2 series ligeras de 8 y 4 repeticiones subiendo el peso poco a poco.</p>';
   return `<div class="fbody"><div class="party" style="font-size:48px"><svg class="i"><use href="#i-flame"/></svg></div><div class="tag">Antes de empezar</div><h2>Calentamiento</h2>
    <p class="sub">5 min de cardio suave y movilidad de hombros y caderas. Después, aproximaciones para <b>${esc(x.n)}</b>${kg>=20?` (objetivo ${kg} kg)`:''}:</p>
@@ -1470,7 +1609,7 @@ function warmHTML(x,kg){
 // ===== Modo entreno (un ejercicio y una serie a la vez) =====
 let FZ=null;
 const restOf=x=>x.lo<=8?+S.cfg.restH:+S.cfg.restL;
-function nextSet(x){const e=exLog(TODAY,current,x);for(let s=0;s<x.s;s++)if(!(e&&e.sets[s]&&+e.sets[s].reps>0))return s;return x.s-1}
+function nextSet(x){const e=exLog(TODAY,current,x);for(let s=0;s<SN(x);s++)if(!(e&&e.sets[s]&&+e.sets[s].reps>0))return s;return SN(x)-1}
 function initVals(x,s){
   const e=exLog(TODAY,current,x),cur=e&&e.sets[s]||{},prevThis=e&&e.sets[s-1]||{},pv=previous(x),ps=pv?(pv.sets[s]||pv.sets[0]||{}):{},ad=advice(x);
   let kg=+cur.kg||+prevThis.kg||+ps.kg||0;
@@ -1480,7 +1619,7 @@ function initVals(x,s){
 }
 setInterval(()=>{if(FZ&&$('#focus').classList.contains('open')){const t=Math.floor((Date.now()-FZ.start)/1000);$('#fChrono').textContent=(t>=3600?Math.floor(t/3600)+':'+String(Math.floor(t/60)%60).padStart(2,'0'):Math.floor(t/60))+':'+String(t%60).padStart(2,'0')}},1000);
 function openFocus(day){
-  if(S.cal.on&&!calDone(TODAY)&&!openFocus.ok){if(!confirm('Primero toca tu calistenia diaria (dominadas, flexiones, fondos…).\n\n¿Empezar el entreno igualmente?')){show('inicio');setTimeout(()=>$('#calCard').scrollIntoView({behavior:'smooth',block:'center'}),100);return}openFocus.ok=1}
+  if(S.cal.on&&!calDone(TODAY)&&!openFocus.ok){if(!confirm('Primero toca tu calistenia diaria (dominadas, flexiones, fondos…).\n\n¿Empezar el entreno igualmente?')){show('calistenia');return}openFocus.ok=1}
   current=day;const p=P()[day];if(!p||!p.ex.length)return toast('Este día no tiene ejercicios');
   const l=getLog(TODAY,day);let i=p.ex.findIndex(x=>!(l&&l.ex[x.id]&&l.ex[x.id].done));if(i<0)i=p.ex.length;
   FZ={i,s:0,start:Date.now()};if(i<p.ex.length){FZ.s=nextSet(p.ex[i]);initVals(p.ex[i],FZ.s)}
@@ -1510,7 +1649,8 @@ function renderFocus(){
       <div class="face back">${(H=>H?`<div class="why"><b>${esc(H.h)}</b>${esc(H.w)}</div>`:'')(headOf(x.n))}<div class="bmap">${bodyMap(musclesFor(x.n),'mini')}</div><ul class="cues">${(PAT[pat(x.n)]||PAT.stand).c.map(c=>`<li>${esc(c)}</li>`).join('')}</ul><button class="btn ghost icon" data-ftech>Técnica completa y vídeo</button></div>
     </div></div>
     <div class="hint ${ad.go?'go':''}" style="text-align:left">${ad.go?'▲ ':''}${ad.txt}</div>
-    <div class="fset">Serie <b>${FZ.s+1}</b> de ${x.s}</div>
+    ${FZ.s===0&&x.lo<=8&&FZ.i>0&&!validSets(e).length&&(FZ.kg||0)>=20?`<details class="approx" open><summary>Series de aproximación · no cuentan</summary><div class="apx">${[[.5,8],[.7,5],[.85,2]].map(([f,r])=>`<button class="apxb" data-apx>${Math.round(f*100)}%<b>${r25(FZ.kg*f)} kg</b><small>× ${r}</small></button>`).join('')}</div></details>`:''}
+    <div class="fset">Serie <b>${FZ.s+1}</b> de ${SN(x)}${isDeload()?' · descarga':''}</div>
     <div class="steppers">
       <div class="stp"><span>Kg</span><div><button data-st="kg" data-d="-1" aria-label="Menos kg">−</button><input id="fKg" type="number" inputmode="decimal" step="0.25" value="${FZ.kg||''}" placeholder="0" aria-label="Kg"><button data-st="kg" data-d="1" aria-label="Más kg">+</button></div></div>
       <div class="stp"><span>Reps</span><div><button data-st="reps" data-d="-1" aria-label="Menos reps">−</button><input id="fReps" type="number" inputmode="numeric" value="${FZ.reps||''}" aria-label="Repeticiones"><button data-st="reps" data-d="1" aria-label="Más reps">+</button></div></div>
@@ -1537,6 +1677,7 @@ $('#focus').addEventListener('click',ev=>{
   if(b.dataset.wd!==undefined){b.classList.toggle('done');b.textContent=b.classList.contains('done')?'✓ Hecho':'✓';return}
   if(b.id==='wEnd'||b.id==='wSkip'){FZ.warm=false;S.warm=S.warm||{};S.warm[TODAY+'|'+current]=1;save();renderFocus();return}
   if(b.dataset.ftech!==undefined)return openTech(x.n);
+  if(b.dataset.apx!==undefined){b.classList.toggle('done');SFX.set();return}
   if(b.dataset.qr){FZ.reps=+b.dataset.qr;const r=$('#fReps');r.value=FZ.reps;bump(r);$$('.qr').forEach(q=>q.classList.toggle('on',q===b));return}
   if(b.dataset.amb!==undefined){AMB.play(b.dataset.amb);$$('#ambSeg button').forEach(q=>q.classList.toggle('on',q===b));return}
   if(b.id==='tempoBtn'){TEMPO.run?TEMPO.stop():TEMPO.start();return}
@@ -1546,7 +1687,7 @@ $('#focus').addEventListener('click',ev=>{
   if(b.id==='fDone'){
     const kg=+$('#fKg').value||0,reps=+$('#fReps').value;if(!(reps>0))return toast('Indica cuántas repeticiones hiciste');
     const e=exLog(TODAY,current,x,true);e.sets[FZ.s]={kg,reps};const pr=checkPR(x.n,{kg,reps});
-    const complete=validSets(e).length>=x.s;if(complete)e.done=true;save();
+    const complete=validSets(e).length>=SN(x);if(complete)e.done=true;save();
     try{navigator.vibrate&&navigator.vibrate(25)}catch(_){}TEMPO.stop();burst($('#fDone'));pr?SFX.pr():complete?SFX.done():SFX.set();
     if(!complete){FZ.s=nextSet(x);FZ.kg=kg;FZ.reps=reps;startTimer(restOf(x));toast(pr||`Serie guardada · descansa ${restOf(x)} s`)}
     else{FZ.i++;toast(pr||'¡Ejercicio completado! <svg class="i"><use href="#i-dumbbell"/></svg>');
@@ -1593,7 +1734,7 @@ $('#importFile').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)
 $('#wipe').onclick=async()=>{if(!confirm('¿Borrar TODOS los registros, ajustes y fotos? No se puede deshacer.'))return;localStorage.removeItem('atletiq-v3');localStorage.removeItem('atletiq-v2');try{await idb('readwrite',s=>s.clear())}catch(e){}load();applyTheme();renderAll();renderPhotos()};
 let rT;window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(()=>{renderHome();if($('#progreso').classList.contains('show'))renderProgress()},150)});
 
-function renderAll(){renderMusic();renderCal();renderCalEditor();syncSW();renderHome();renderRoutine();renderOptions();if($('#progreso').classList.contains('show'))renderProgress()}
+function renderAll(){renderMusic();renderCal();renderCalMini();renderSkills();renderCalChart();renderBackup();renderCalEditor();syncSW();renderHome();renderRoutine();renderOptions();if($('#progreso').classList.contains('show'))renderProgress()}
 
 // ===== Instalación y modo sin conexión =====
 let deferredPrompt;

@@ -1,14 +1,20 @@
 ﻿// ATLETIQ service worker: cache-first para que funcione sin conexiÃ³n.
-const CACHE = 'atletiq-v14';
+const CACHE = 'atletiq-v15';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './icon-maskable.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== 'atletiq-img' && k !== 'atletiq-state').map(k => caches.delete(k)))).then(() => self.clients.claim()));
 });
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
+  const u = new URL(e.request.url);
+  // Fotos de ejercicios: caché primero para que funcionen sin conexión
+  if (e.request.method === 'GET' && u.hostname === 'raw.githubusercontent.com' && u.pathname.includes('/free-exercise-db/')) {
+    e.respondWith(caches.open('atletiq-img').then(c => c.match(e.request.url).then(r => r || fetch(e.request.url, { mode: 'no-cors' }).then(res => { c.put(e.request.url, res.clone()); return res; }))));
+    return;
+  }
+  if (e.request.method !== 'GET' || u.origin !== location.origin) return;
   // Red primero para la pÃ¡gina (asÃ­ ves actualizaciones), cachÃ© si no hay conexiÃ³n.
   if (e.request.mode === 'navigate') {
     e.respondWith(fetch(e.request).then(r => { const c = r.clone(); caches.open(CACHE).then(x => x.put('./index.html', c)); return r; })
